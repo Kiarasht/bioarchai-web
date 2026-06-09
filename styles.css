@@ -1,0 +1,159 @@
+:root {
+  --bg: #f7f5ef;
+  --text: #141414;
+  --muted: #5d5d5d;
+  --card: #ffffff;
+  --border: #dedbd2;
+  --accent: #1f6f5b;
+  --accent-dark: #164f41;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(circle at top left, #e5f2ec, var(--bg) 42%);
+  color: var(--text);
+}
+
+.nav {
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 28px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  font-size: 1.25rem;
+}
+
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 22px;
+  font-size: 0.95rem;
+}
+
+.hero {
+  width: min(1000px, calc(100% - 40px));
+  margin: 80px auto 60px;
+  padding: 90px 40px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.08);
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.8rem;
+}
+
+h1 {
+  margin: 14px 0;
+  font-size: clamp(3rem, 8vw, 7rem);
+  letter-spacing: -0.08em;
+  line-height: 0.95;
+}
+
+.subtitle {
+  width: min(680px, 100%);
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+
+.buttons {
+  margin-top: 34px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.button {
+  padding: 14px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.primary {
+  background: var(--accent);
+  color: white;
+}
+
+.primary:hover {
+  background: var(--accent-dark);
+}
+
+.secondary {
+  color: var(--text);
+  border: 1px solid var(--border);
+  background: white;
+}
+
+.section {
+  width: min(860px, calc(100% - 40px));
+  margin: 24px auto;
+  padding: 34px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+}
+
+.section h2 {
+  margin-top: 0;
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+}
+
+.section p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.email-link {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 40px 20px;
+}
+
+@media (max-width: 640px) {
+  .nav {
+    align-items: flex-start;
+    gap: 14px;
+    flex-direction: column;
+  }
+
+  .nav a {
+    margin-left: 0;
+    margin-right: 18px;
+  }
+
+  .hero {
+    margin-top: 40px;
+    padding: 56px 24px;
+  }
+}

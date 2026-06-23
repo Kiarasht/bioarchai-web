@@ -454,7 +454,7 @@ h3 {
   line-height: 1.1;
 }
 
-.nexus-core span:last-child {
+.nexus-core > span:last-child {
   color: var(--cyan);
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 0.72rem;
@@ -544,7 +544,7 @@ h3 {
   min-height: 245px;
 }
 
-.flow-step span {
+.flow-step > span {
   display: inline-flex;
   width: 34px;
   height: 34px;
@@ -914,7 +914,7 @@ h3 {
   margin-top: 24px;
 }
 
-.capability-list span {
+.capability-list > span {
   padding: 12px;
   border: 1px solid rgba(132, 148, 149, 0.22);
   border-radius: 4px;
@@ -1009,7 +1009,7 @@ h3 {
   gap: 24px;
 }
 
-.timeline-item span {
+.timeline-item > span {
   color: var(--cyan);
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 0.8rem;
@@ -1058,7 +1058,7 @@ h3 {
   margin-top: 20px;
 }
 
-.tag-row span {
+.tag-row > span {
   padding: 7px 10px;
   border: 1px solid rgba(132, 148, 149, 0.26);
   border-radius: 4px;

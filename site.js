@@ -1,3 +1,107 @@
+const content = window.BIOARCHAI_CONTENT;
+
+const getCopy = (path) => {
+  const value = path
+    .split(".")
+    .reduce((current, key) => current?.[key], content);
+
+  if (value === undefined) {
+    console.error(`Missing BioArchai content key: ${path}`);
+  }
+
+  return value;
+};
+
+const hydrateCopy = () => {
+  if (!content) {
+    console.error("BioArchai content failed to load.");
+    return;
+  }
+
+  document.querySelectorAll("[data-copy]").forEach((element) => {
+    const value = getCopy(element.dataset.copy);
+    if (typeof value === "string") {
+      element.textContent = value;
+    }
+  });
+
+  document.querySelectorAll("*").forEach((element) => {
+    [...element.attributes].forEach((attribute) => {
+      if (!attribute.name.startsWith("data-copy-")) return;
+
+      const targetAttribute = attribute.name.slice("data-copy-".length);
+      const value = getCopy(attribute.value);
+
+      if (typeof value === "string") {
+        element.setAttribute(targetAttribute, value);
+      }
+    });
+  });
+};
+
+const validateCopyCoverage = () => {
+  const uncoveredText = [];
+  const walker = document.createTreeWalker(
+    document.documentElement,
+    NodeFilter.SHOW_TEXT
+  );
+  let node;
+
+  while ((node = walker.nextNode())) {
+    const parent = node.parentElement;
+    const value = node.nodeValue.trim();
+
+    if (
+      !value ||
+      !parent ||
+      ["SCRIPT", "STYLE"].includes(parent.tagName) ||
+      parent.closest("[data-copy], .material-symbols-outlined")
+    ) {
+      continue;
+    }
+
+    uncoveredText.push(value);
+  }
+
+  const uncoveredAttributes = [];
+  document.querySelectorAll("*").forEach((element) => {
+    ["aria-label", "placeholder"].forEach((attribute) => {
+      if (
+        element.getAttribute(attribute) &&
+        !element.hasAttribute(`data-copy-${attribute}`)
+      ) {
+        uncoveredAttributes.push(`${element.tagName.toLowerCase()}[${attribute}]`);
+      }
+    });
+
+    if (
+      element.matches('meta[name="description"]') &&
+      !element.hasAttribute("data-copy-content")
+    ) {
+      uncoveredAttributes.push("meta[description]");
+    }
+
+    if (
+      (element.matches('a[href^="mailto:"]') ||
+        element.matches('form[action^="mailto:"]')) &&
+      !element.hasAttribute(
+        element.matches("a") ? "data-copy-href" : "data-copy-action"
+      )
+    ) {
+      uncoveredAttributes.push(`${element.tagName.toLowerCase()}[mailto]`);
+    }
+  });
+
+  if (uncoveredText.length || uncoveredAttributes.length) {
+    console.error("User-facing copy must be added to content.js.", {
+      text: uncoveredText,
+      attributes: uncoveredAttributes
+    });
+  }
+};
+
+hydrateCopy();
+
 const menuToggle = document.querySelector("[data-menu-toggle]");
 const siteNav = document.querySelector("[data-site-nav]");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -180,25 +284,29 @@ if (demoForm instanceof HTMLFormElement) {
 
     event.preventDefault();
     const data = new FormData(demoForm);
+    const emailCopy = getCopy("demo.email");
+    const fields = emailCopy.fields;
     const lines = [
-      `Name: ${data.get("name") || ""}`,
-      `Company: ${data.get("company") || ""}`,
-      `Title / Role: ${data.get("title") || ""}`,
-      `Work email: ${data.get("email") || ""}`,
-      `Area of interest: ${data.get("interest") || ""}`,
-      `Therapeutic / disease area: ${data.get("disease") || ""}`,
+      `${fields.name}: ${data.get("name") || ""}`,
+      `${fields.company}: ${data.get("company") || ""}`,
+      `${fields.title}: ${data.get("title") || ""}`,
+      `${fields.email}: ${data.get("email") || ""}`,
+      `${fields.interest}: ${data.get("interest") || ""}`,
+      `${fields.disease}: ${data.get("disease") || ""}`,
       "",
-      "Message / use case:",
+      `${fields.message}:`,
       String(data.get("message") || "")
     ];
 
-    const subject = encodeURIComponent("BioArchai demo request");
+    const subject = encodeURIComponent(emailCopy.subject);
     const body = encodeURIComponent(lines.join("\n"));
 
     if (formStatus) {
-      formStatus.textContent = "Opening your email client with the request details.";
+      formStatus.textContent = emailCopy.status;
     }
 
-    window.location.href = `mailto:nastaran.hida@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${emailCopy.recipient}?subject=${subject}&body=${body}`;
   });
 }
+
+validateCopyCoverage();

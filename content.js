@@ -73,7 +73,7 @@ window.BIOARCHAI_CONTENT = {
     "biomarkerStrategyTrialPlanningAssayStrategyEvidenceGenerationAnd": "Biomarker strategy, trial planning, assay strategy, evidence generation, and team-configured product experiences.",
     "decisionReadyOutputs": "Decision-Ready Outputs",
     "prioritizedRecommendationsEvidenceSummariesRiskFlagsRoadmapsAndStakeholder": "Prioritized recommendations, evidence summaries, risk flags, roadmaps, and stakeholder-ready reports.",
-    "biomarkerIntelligenceAcrossStrategyTrialsAssaysAndEvidence": "Biomarker Intelligence Across Strategy, Trials, Assays, and Evidence",
+    "biomarkerIntelligenceAcrossStrategyTrialsAssaysAndEvidence": "Test Text",
     "bioarchaiSupportsDiseaseSpecificWorkflowsAcrossThePrecisionMedicine": "BioArchai supports disease-specific workflows across the precision medicine lifecycle, powered by Archai Nexus.",
     "workflow": "Workflow",
     "viewWorkflow": "View workflow",

@@ -338,7 +338,7 @@
         context.fill();
 
         context.beginPath();
-        context.arc(point.x, point.y, 7 + pulse * 2, 0, Math.PI * 2);
+        context.arc(point.x, point.y, 13, 0, Math.PI * 2);
         context.fillStyle = "rgba(8, 20, 29, 0.92)";
         context.fill();
         context.strokeStyle = "rgba(97, 221, 204, 0.7)";
@@ -367,7 +367,7 @@
         context.fill();
 
         context.beginPath();
-        context.arc(point.x, point.y, 12 + pulse * 2, 0, Math.PI * 2);
+        context.arc(point.x, point.y, 13, 0, Math.PI * 2);
         context.fillStyle = "rgba(10, 28, 42, 0.96)";
         context.fill();
         context.strokeStyle = "rgba(118, 197, 255, 0.85)";
@@ -379,15 +379,15 @@
         context.fillText(landing.heroOutputMarks[index], point.x, point.y + 3);
       });
 
-      const corePulse = (Math.sin(frame * 0.02) + 1) / 2;
       const coreFont = "600 11px Inter, system-ui, sans-serif";
       context.font = coreFont;
       const coreRadius = Math.max(24, context.measureText(common.nexusCoreLabel).width / 2 + 8);
-      const gradient = context.createRadialGradient(core.x, core.y, 0, core.x, core.y, 55 + corePulse * 8);
+      const coreGlowRadius = Math.max(62, coreRadius * 2.4);
+      const gradient = context.createRadialGradient(core.x, core.y, 0, core.x, core.y, coreGlowRadius);
       gradient.addColorStop(0, "rgba(74, 218, 197, 0.32)");
       gradient.addColorStop(1, "rgba(74, 218, 197, 0)");
       context.beginPath();
-      context.arc(core.x, core.y, 58 + corePulse * 8, 0, Math.PI * 2);
+      context.arc(core.x, core.y, coreGlowRadius, 0, Math.PI * 2);
       context.fillStyle = gradient;
       context.fill();
       context.beginPath();

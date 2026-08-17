@@ -4081,7 +4081,7 @@ textarea:focus-visible {
   }
 
   .nexus-canvas {
-    opacity: 0.42;
+    display: none;
   }
 
   .trust-strip {

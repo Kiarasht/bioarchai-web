@@ -262,7 +262,7 @@ window.BIOARCHAI_CONTENT = {
   },
   "txArchai": {
     "txArchaiDemoBioarchai": "Tx Archai Workspace | BioArchai",
-    "metaDescription": "A static Archai Nexus product prototype for Tx Archai biomarker strategy, agent evidence review, graph traceability, scoring, and final report export.",
+    "metaDescription": "An Archai Nexus workspace for Tx Archai biomarker strategy, agent evidence review, traceability, scoring, and final report export.",
     "brandKicker": "Archai Nexus / Tx Archai",
     "workspaceTitle": "Decision Intelligence for Biomarker-Driven Drug Development",
     "workspaceLede": "Confidently define biomarker strategy from drug biology, indication, evidence, and trial context.",
@@ -318,7 +318,7 @@ window.BIOARCHAI_CONTENT = {
       "addGraphSnapshot": "Add graph snapshot to report",
       "allGood": "Required inputs are complete. Broad strategy mode is ready.",
       "missingRequired": "Drug name or drug class and indication are required before analysis.",
-      "savedValid": "Configuration saved as a versioned template for this prototype.",
+      "savedValid": "Configuration saved as a reusable scoring template.",
       "weightsNeed100": "Total weights must equal 100% before saving.",
       "rationaleRequired": "Rationale is required when defaults are changed.",
       "restoredDefault": "Default Archai Strategy Score restored.",
@@ -376,14 +376,14 @@ window.BIOARCHAI_CONTENT = {
           "title": "Dx Archai",
           "status": "Visible / later workflow",
           "description": "Diagnostics intelligence, assay strategy, testing-data harmonization, and pharma evidence packages.",
-          "action": "Preview later workflow"
+          "action": "Explore workflow"
         },
         {
           "id": "evidence",
           "title": "Evidence Archai",
           "status": "Visible / later workflow",
           "description": "KOL briefs, scientific narratives, evidence-gap maps, RWE/HEOR plans, and payer evidence support.",
-          "action": "Preview later workflow"
+          "action": "Explore workflow"
         }
       ],
       "workflowHeading": "MVP Tx Archai route",
@@ -719,7 +719,7 @@ window.BIOARCHAI_CONTENT = {
       "accessLevels": ["Viewer", "Reviewer", "Editor", "Admin"],
       "auditEntries": [
         "archai_default_v1 created by BioArchai system baseline.",
-        "Phase II signal-seeking preset previewed for EGFR TKI / NSCLC prototype.",
+        "Phase II signal-seeking preset configured for the EGFR TKI / NSCLC project.",
         "No custom template saved yet."
       ]
     },
@@ -880,23 +880,20 @@ window.BIOARCHAI_CONTENT = {
 
 window.BIOARCHAI_CONTENT.v2 = {
   "meta": {
-    "landingTitle": "Archai Nexus | BioArchai V2",
+    "landingTitle": "Archai Nexus | BioArchai",
     "landingDescription": "Decision intelligence for biomarker-driven drug development, diagnostics, and evidence strategy.",
-    "loginTitle": "Sign in to Archai Nexus | BioArchai V2",
-    "loginDescription": "Access the BioArchai V2 product demonstration workspace.",
-    "workspaceTitle": "Archai Nexus Workspace | BioArchai V2",
-    "workspaceDescription": "Interactive BioArchai product demonstration with transparent evidence agents, reports, scoring, graph traceability, and simulated AI models."
+    "loginTitle": "Sign in to Archai Nexus | BioArchai",
+    "loginDescription": "Access the BioArchai decision intelligence workspace.",
+    "workspaceTitle": "Archai Nexus Workspace | BioArchai",
+    "workspaceDescription": "BioArchai decision intelligence workspace with transparent evidence agents, reports, scoring, traceability, and AI-assisted analysis."
   },
   "common": {
     "brand": "BioArchai",
     "product": "Archai Nexus",
-    "version": "V2 Preview",
-    "previewNote": "Interactive concept prototype",
     "navOverview": "Overview",
     "navSolutions": "Solutions",
     "navWorkflow": "How it works",
     "navPrinciples": "Product principles",
-    "viewV1": "View V1 site",
     "signIn": "Sign in",
     "launchWorkspace": "Launch workspace",
     "requestDemo": "Request a demo",
@@ -913,7 +910,7 @@ window.BIOARCHAI_CONTENT.v2 = {
     "highConfidence": "High confidence",
     "mediumConfidence": "Medium confidence",
     "active": "Active",
-    "inactive": "MVP-2",
+    "inactive": "Not active",
     "running": "Running",
     "queued": "Queued",
     "complete": "Complete",
@@ -928,27 +925,29 @@ window.BIOARCHAI_CONTENT.v2 = {
     "status": "Status",
     "nexusCoreLabel": "NEXUS",
     "moreActionsAria": "More project activity actions",
-    "demoDisclaimer": "Simulated product experience. Evidence, model outputs, citations, and exports are illustrative only.",
+    "demoDisclaimer": "Evidence and recommendations should be reviewed by qualified experts before external use.",
     "copyright": "2026 BioArchai. Decision intelligence for biomarker-driven medicine.",
     "openNavigationAria": "Open navigation",
     "closeNavigationAria": "Close navigation",
-    "brandHomeAria": "BioArchai V2 home",
+    "brandHomeAria": "BioArchai home",
     "workspaceNavigationAria": "Workspace navigation",
     "accountMenuAria": "Account menu",
     "notificationsAria": "Notifications",
-    "copilotAria": "Open Archai Copilot",
-    "externalAria": "Opens another version of the BioArchai website"
+    "copilotAria": "Open Archai Copilot"
   },
   "landing": {
     "eyebrow": "Archai Nexus Decision Intelligence",
-    "headline": "Biomarker strategy, made traceable.",
-    "lede": "Turn fragmented biological, clinical, assay, and regulatory evidence into a decision-ready development strategy with every recommendation connected to its source.",
+    "headline": "Biomarker Strategy and Clinical Trial Design Made Traceable",
+    "lede": "Turn fragmented biological, clinical, assay, regulatory, and pipeline evidence into decision-ready biomarker strategy and clinical trial design, with every recommendation connected to its source.",
     "primaryAction": "Explore Tx Archai",
     "secondaryAction": "See the evidence workflow",
-    "heroSignalLabel": "Live evidence map",
-    "heroSignalStatus": "6 agents connected",
-    "heroSignals": ["Biology", "Labels", "Trials", "Prevalence", "Assays", "Strategy"],
-    "trustItems": ["Evidence-linked recommendations", "Visible agent workflow", "Versioned scoring logic", "Human review at every stage"],
+    "heroSignalLabel": "Specialized evidence agents",
+    "heroSignalStatus": "Five sources connected",
+    "heroSignals": ["Label Evidence", "Clinical Trial Evidence", "Prevalence Evidence", "Assay Strategy", "Biology & Clinical Evidence"],
+    "heroOutputLabel": "Primary strategy outputs",
+    "heroOutputs": ["Biomarker Strategy Agent", "Clinical Trial Design Agent"],
+    "heroOutputMarks": ["B", "T"],
+    "trustItems": ["Evidence-linked recommendations", "Visible agent workflow", "Controlled decision logic", "Human review at every stage"],
     "solutionsEyebrow": "One intelligence layer, three focused workspaces",
     "solutionsTitle": "Start with the decision your team needs to make.",
     "solutionsLede": "Archai Nexus routes each team into a purpose-built workflow while preserving a shared evidence model, audit trail, and reporting system.",
@@ -956,40 +955,43 @@ window.BIOARCHAI_CONTENT.v2 = {
       {
         "id": "tx",
         "name": "Tx Archai",
-        "status": "MVP active",
+        "status": "Available",
         "icon": "medication",
-        "audience": "Translational medicine and clinical development",
-        "description": "Build biomarker, assay, and clinical trial strategy from drug biology, indication, evidence, and phase context.",
+        "audience": "Translational Medicine and Clinical Development Teams",
+        "description": "Build biomarker and clinical trial strategy from drug biology, indication, assay evidence, development context, and pipeline intelligence.",
+        "capabilities": ["Biomarker Strategy", "Clinical Trial Design", "Assay Integration", "Evidence Synthesis", "Auditable Recommendations"],
         "action": "Open Tx Archai"
       },
       {
         "id": "dx",
         "name": "Dx Archai",
-        "status": "Concept workflow",
+        "status": "Available",
         "icon": "biotech",
-        "audience": "Diagnostics and assay teams",
-        "description": "Evaluate biomarker definitions, testing pathways, analytical readiness, and diagnostic partnership evidence.",
-        "action": "Preview Dx Archai"
+        "audience": "Diagnostics and Assay Development Teams",
+        "description": "Connect assay development, testing pathways, analytical readiness, and biopharma opportunity intelligence in one decision workflow.",
+        "capabilities": ["Assay Strategy", "Testing Pathways", "Analytical Readiness", "Pharma Pipeline Intelligence", "Partnership Strategy"],
+        "action": "Open Dx Archai"
       },
       {
         "id": "evidence",
         "name": "Evidence Archai",
-        "status": "Concept workflow",
+        "status": "Available",
         "icon": "clinical_notes",
-        "audience": "Medical Affairs, HEOR, and RWE",
-        "description": "Map evidence gaps, create scientific narratives, and organize evidence generation plans for stakeholder review.",
-        "action": "Preview Evidence Archai"
+        "audience": "Medical Affairs, HEOR, and Commercial Strategy Teams",
+        "description": "Translate evidence gaps, real-world data, access considerations, and lifecycle opportunities into an actionable evidence strategy.",
+        "capabilities": ["Evidence Generation Strategy", "Evidence Gap Mapping", "Real-World Evidence", "Testing Access and Value Evidence", "Label Expansion Support"],
+        "action": "Open Evidence Archai"
       }
     ],
     "workflowEyebrow": "Transparent by design",
     "workflowTitle": "From a strategic question to an auditable recommendation.",
-    "workflowLede": "The workflow keeps setup structured, agents visible, assumptions explicit, and evidence reviewable before any report is finalized.",
+    "workflowLede": "From a strategic question to an auditable recommendation, supported by diverse public data and proprietary pipeline data within a compliant data integration environment.",
     "workflowSteps": [
       {"number": "01", "title": "Define the question", "description": "Provide a drug or drug class and indication. Add context only when it improves the decision."},
       {"number": "02", "title": "Inspect the evidence plan", "description": "See which agents will run and the exact public or curated resources each one uses."},
-      {"number": "03", "title": "Review evidence and assumptions", "description": "Open agent reports, accept evidence cards, inspect positivity criteria, and flag gaps."},
-      {"number": "04", "title": "Trace and calibrate", "description": "Follow graph relationships and compare default versus customized scoring logic."},
-      {"number": "05", "title": "Generate the report", "description": "Create a versioned strategy report with evidence, scoring metadata, and decision rationale."}
+      {"number": "03", "title": "Review evidence and assumptions", "description": "Open agent reports, review detailed evidence cards, select findings, and flag gaps."},
+      {"number": "04", "title": "Trace and calibrate", "description": "Follow evidence relationships and compare default versus customized decision logic."},
+      {"number": "05", "title": "Generate the report", "description": "Create a strategy report with selected evidence, decision metadata, and expert rationale."}
     ],
     "principlesEyebrow": "Built for expert judgment",
     "principlesTitle": "A decision workspace, not a black-box chatbot.",
@@ -999,20 +1001,26 @@ window.BIOARCHAI_CONTENT.v2 = {
       {"icon": "tune", "title": "Controlled flexibility", "description": "Authorized users can adjust scoring while the default framework and every change remain auditable."},
       {"icon": "groups", "title": "Human review", "description": "Evidence can be accepted, excluded, commented on, and promoted into a final report by the project team."}
     ],
+    "ctaEyebrow": "Tx Archai",
     "ctaTitle": "See the complete Tx Archai workflow.",
-    "ctaLede": "Enter the simulated workspace to create a project, run evidence agents, review reports, and test the Archai Copilot interface.",
+    "ctaLede": "Enter the workspace to create a project, run evidence agents, review reports, and work with Archai Copilot.",
     "footerProduct": "Product",
     "footerCompany": "Company",
-    "footerLinks": ["Tx Archai", "Dx Archai", "Evidence Archai", "Evidence graph", "Scoring criteria"]
+    "footerLinks": ["Tx Archai", "Dx Archai", "Evidence Archai"],
+    "footerCompanyLinks": [
+      {"label": "Team", "href": "../team.html"},
+      {"label": "News", "href": "../news.html"},
+      {"label": "Careers", "href": "../careers.html"}
+    ]
   },
   "login": {
-    "eyebrow": "Secure workspace preview",
+    "eyebrow": "Archai Nexus",
     "title": "Sign in to Archai Nexus",
-    "lede": "Continue into the V2 product demo. No credentials are required for this prototype.",
+    "lede": "Access your evidence workspace, active projects, and completed reports.",
     "emailLabel": "Work email",
     "emailPlaceholder": "name@company.com",
     "passwordLabel": "Password",
-    "passwordPlaceholder": "Enter any password",
+    "passwordPlaceholder": "Enter your password",
     "remember": "Keep me signed in",
     "forgot": "Forgot password?",
     "submit": "Continue to workspace",
@@ -1020,18 +1028,17 @@ window.BIOARCHAI_CONTENT.v2 = {
     "ssoGoogle": "Google",
     "ssoMicrosoft": "Microsoft",
     "ssoOkta": "Okta",
-    "noCredentials": "Demo access is enabled. Leave the fields blank and continue.",
-    "returnToSite": "Return to V2 overview",
+    "returnToSite": "Return to BioArchai",
     "panelEyebrow": "Inside the workspace",
     "panelTitle": "One place to inspect the full decision trail.",
     "panelItems": [
       "Create a structured Tx Archai project",
-      "Watch six evidence agents progress",
-      "Review evidence cards and biomarker roles",
-      "Explore graph relationships and scoring",
-      "Try a simulated AI copilot conversation"
+      "Run seven evidence and strategy agents",
+      "Review detailed agent evidence and recommendations",
+      "Manage findings included in final reports",
+      "Work with Archai Copilot across project evidence"
     ],
-    "sessionMessage": "Creating your demo workspace..."
+    "sessionMessage": "Opening your workspace..."
   },
   "workspace": {
     "nav": [
@@ -1045,27 +1052,32 @@ window.BIOARCHAI_CONTENT.v2 = {
     ],
     "workspaceName": "Translational Strategy Workspace",
     "workspaceInitials": "TX",
-    "accountName": "Demo User",
-    "accountInitials": "DU",
-    "accountRole": "Strategy Editor",
+    "accountName": "Dr. Aisha Morgan",
+    "accountInitials": "AM",
+    "accountRole": "Translational Strategy Lead",
     "signOut": "Sign out",
     "newProject": "New project",
     "projectName": "EGFR TKI Strategy - NSCLC",
     "projectCode": "TX-2408-018",
-    "projectVersion": "Analysis v1.4",
+    "projectVersion": "Current analysis",
     "projectUpdated": "Updated 18 minutes ago",
-    "projectOwner": "Owner: Demo User",
+    "projectOwner": "Owner: Dr. Aisha Morgan",
     "projectStatus": "Evidence review",
+    "analysisLabel": "Analysis",
     "breadcrumb": "Tx Archai / Active project",
     "notificationCount": "3",
     "overview": {
       "eyebrow": "Tx Archai active project",
-      "title": "Good morning. Your evidence review is ready.",
-      "lede": "The six-agent run for EGFR TKI strategy in non-small cell lung cancer is complete. Review assumptions, inspect high-impact evidence, or continue the conversation with Archai Copilot.",
+      "title": "Evidence review status",
+      "lede": "Track the current state of the evidence review, resolve open items, and continue into the completed strategy reports.",
+      "statusEyebrow": "Current evidence review",
+      "statusTitle": "Evidence review is ready",
+      "statusDetail": "All seven agent reports are complete. Four evidence cards remain pending review and two assumptions require attention before the final report is approved.",
+      "statusBadge": "Ready",
       "resume": "Resume evidence review",
       "askCopilot": "Ask Archai Copilot",
       "metrics": [
-        {"label": "Agent reports", "value": "6 / 6", "detail": "All reports available", "icon": "task_alt"},
+        {"label": "Agent reports", "value": "7 / 7", "detail": "All reports available", "icon": "task_alt"},
         {"label": "Accepted evidence", "value": "24", "detail": "4 pending review", "icon": "library_add_check"},
         {"label": "Strategy score", "value": "86", "detail": "Selected strategy", "icon": "monitoring"},
         {"label": "Open gaps", "value": "5", "detail": "2 require attention", "icon": "warning"}
@@ -1074,20 +1086,33 @@ window.BIOARCHAI_CONTENT.v2 = {
       "activity": [
         {"time": "18 min", "title": "Biomarker strategy report updated", "detail": "New trial precedent was promoted into the report."},
         {"time": "32 min", "title": "Assay readiness gate reviewed", "detail": "Tissue NGS remains the primary eligibility route."},
-        {"time": "1 hr", "title": "Agent run completed", "detail": "Six agent reports and the evidence graph are available."}
+        {"time": "1 hr", "title": "Agent run completed", "detail": "Seven agent reports are available for review."}
       ],
       "attentionTitle": "Needs your attention",
       "attention": [
         {"severity": "Review", "title": "Plasma ctDNA limitation", "detail": "Confirm how LoD and tissue fallback language should appear in the final report.", "action": "Review evidence"},
         {"severity": "Gap", "title": "First-line population assumption", "detail": "The setup did not specify line of therapy, so the analysis remains broad.", "action": "Review assumption"}
-      ]
+      ],
+      "previousReportsTitle": "Previous project reports",
+      "previousReportsLede": "Open completed reports, revisit an active project, or download a prior deliverable.",
+      "previousReports": [
+        {"code": "TX-2407-014", "name": "KRAS G12C Strategy - NSCLC", "detail": "Biomarker strategy and Phase II trial design", "status": "Complete", "updated": "July 28, 2026", "file": "BioArchai_KRAS_G12C_NSCLC_Report.doc"},
+        {"code": "TX-2406-009", "name": "HER2-Low Strategy - Breast Cancer", "detail": "Enrichment and assay strategy", "status": "Complete", "updated": "July 11, 2026", "file": "BioArchai_HER2_Low_Report.doc"},
+        {"code": "TX-2405-021", "name": "ctDNA Monitoring - Colorectal Cancer", "detail": "Exploratory monitoring context of use", "status": "Requires attention", "updated": "June 30, 2026", "file": "BioArchai_ctDNA_CRC_Report.doc"}
+      ],
+      "openReport": "Open report",
+      "revisitProject": "Revisit project",
+      "downloadReport": "Download report",
+      "downloadAria": "Download previous project report",
+      "previousReportStatusLabel": "Project status",
+      "previousReportUpdatedLabel": "Last updated"
     },
     "setup": {
       "eyebrow": "Step 1 of 4",
       "title": "Define the strategy question",
-      "lede": "Only the drug or drug class and indication are required. Archai Nexus can infer broader context and will surface every assumption it makes.",
-      "sectionRequired": "Required context",
-      "sectionOptional": "Optional context",
+      "lede": "Start with the drug or drug class and indication, then add the context that should shape the analysis. Archai Nexus will surface every assumption it makes.",
+      "sectionTitle": "Add Context",
+      "sectionLede": "Describe the development question, intended biomarker use, and any known clinical or assay constraints.",
       "drugLabel": "Drug name or drug class",
       "drugPlaceholder": "Example: EGFR TKI drug class",
       "sampleDrug": "EGFR TKI drug class",
@@ -1107,7 +1132,11 @@ window.BIOARCHAI_CONTENT.v2 = {
       "biologyLabel": "Asset biology or MOA",
       "biologyPlaceholder": "Example: EGFR signaling inhibition",
       "sampleBiology": "EGFR signaling inhibition",
-      "contextLabel": "Biomarker, comparator, or assay context",
+      "contextUseLabel": "Biomarker Context of Use",
+      "contextUsePlaceholder": "Select the intended biomarker use",
+      "contextUseOptions": ["Not specified", "Patient selection", "Enrichment", "Stratification", "Prognosis", "Pharmacodynamic monitoring", "Exploratory analysis"],
+      "sampleContextUse": "Patient selection",
+      "contextLabel": "Additional biomarker, comparator, or assay context",
       "contextPlaceholder": "Add known biomarkers, competitor trials, assays, or strategy notes",
       "sampleContext": "Sensitizing EGFR alterations; tissue NGS primary; plasma ctDNA fallback",
       "sampleAction": "Use EGFR / NSCLC example",
@@ -1116,7 +1145,7 @@ window.BIOARCHAI_CONTENT.v2 = {
       "requiredError": "Add a drug or drug class and an indication to continue.",
       "assumptionsTitle": "How missing context is handled",
       "assumptions": [
-        "Generate a broad strategy when optional context is missing.",
+        "Generate a broad strategy when additional context is missing.",
         "Ask a clarifying question only when accuracy would materially change.",
         "Show inferred context, confidence impact, and evidence gaps.",
         "Let the user narrow the strategy after reviewing the first result."
@@ -1125,33 +1154,38 @@ window.BIOARCHAI_CONTENT.v2 = {
     "agents": {
       "eyebrow": "Step 2 of 4",
       "title": "Evidence Plan & Agent Run",
-      "lede": "Each backend agent shows its current status and the resources it uses. Findings and counts remain inside the agent reports.",
+      "lede": "Run the complete evidence plan or launch any agent independently. Each agent retains its own status, evidence resources, and report.",
       "runAction": "Run all agents",
-      "rerunAction": "Run again",
+      "runAgentAction": "Run agent",
+      "rerunAgentAction": "Rerun agent",
       "progressReady": "Evidence plan ready",
       "progressRunning": "Agents are retrieving and organizing evidence...",
-      "progressComplete": "All six reports are ready for review.",
+      "progressIndividual": "The selected agent is retrieving and organizing evidence...",
+      "progressComplete": "All seven reports are ready for review.",
+      "individualComplete": "The selected agent report is ready for review.",
       "sourceLabel": "Datasets and resources",
       "items": [
-        {"id": "label", "order": "01", "name": "Label Evidence Agent", "status": "Complete", "tone": "teal", "resources": ["openFDA Drug Label API", "DailyMed", "Drugs@FDA", "FDA labels", "FDA CDx/device documents"]},
-        {"id": "trial", "order": "02", "name": "Clinical Trial Evidence Agent", "status": "Complete", "tone": "blue", "resources": ["ClinicalTrials.gov", "Eligibility criteria", "NCT metadata", "Phase, status, and sponsor fields"]},
-        {"id": "prevalence", "order": "03", "name": "Prevalence Evidence Agent", "status": "Complete", "tone": "violet", "resources": ["AACR GENIE / cBioPortal", "TCGA / GDC", "SEER incidence and denominator context"]},
-        {"id": "assay", "order": "04", "name": "Assay Strategy Agent", "status": "Complete", "tone": "amber", "resources": ["FDA CDx/device documentation", "PMA / 510(k) / De Novo summaries", "Package inserts and IFUs", "Trial assay requirements"]},
-        {"id": "biology", "order": "05", "name": "Biology & Clinical Evidence Agent", "status": "Complete", "tone": "green", "resources": ["PubMed / PMC", "CIViC", "ClinGen / ClinVar", "Curated oncology sources"]},
-        {"id": "strategy", "order": "06", "name": "Biomarker & Clinical Trial Strategy Agent", "status": "Complete", "tone": "cyan", "resources": ["Upstream agent outputs", "ClinicalTrials.gov precedent", "Prevalence and assay context", "Eligibility strategy", "Scoring configuration"]}
+        {"id": "label", "order": "01", "name": "Label Evidence Agent", "category": "Specialized evidence agent", "status": "Complete", "tone": "teal", "resources": ["openFDA Drug Label API", "DailyMed", "Drugs@FDA", "FDA labels", "FDA CDx/device documents"]},
+        {"id": "trial", "order": "02", "name": "Clinical Trial Evidence Agent", "category": "Specialized evidence agent", "status": "Complete", "tone": "blue", "resources": ["ClinicalTrials.gov", "Eligibility criteria", "NCT metadata", "Phase, status, and sponsor fields"]},
+        {"id": "prevalence", "order": "03", "name": "Prevalence Evidence Agent", "category": "Specialized evidence agent", "status": "Complete", "tone": "violet", "resources": ["AACR GENIE / cBioPortal", "TCGA / GDC", "SEER incidence and denominator context"]},
+        {"id": "assay", "order": "04", "name": "Assay Strategy Agent", "category": "Specialized evidence agent", "status": "Complete", "tone": "amber", "resources": ["FDA CDx/device documentation", "PMA / 510(k) / De Novo summaries", "Package inserts and IFUs", "Trial assay requirements"]},
+        {"id": "biology", "order": "05", "name": "Biology & Clinical Evidence Agent", "category": "Specialized evidence agent", "status": "Complete", "tone": "green", "resources": ["PubMed / PMC", "CIViC", "ClinGen / ClinVar", "Curated oncology sources"]},
+        {"id": "biomarker-strategy", "order": "06", "name": "Biomarker Strategy Agent", "category": "Primary output agent", "status": "Complete", "tone": "cyan", "resources": ["Five specialized agent reports", "Biomarker context of use", "Evidence inclusion decisions", "Assumptions and gaps", "Decision logic"]},
+        {"id": "trial-design", "order": "07", "name": "Clinical Trial Design Agent", "category": "Primary output agent", "status": "Complete", "tone": "cyan", "resources": ["Five specialized agent reports", "Eligibility precedent", "Prevalence and feasibility context", "Assay implementation strategy", "Development-phase objectives"]}
       ]
     },
     "evidence": {
       "eyebrow": "Step 3 of 4",
       "title": "Evidence Dashboard & Report",
-      "lede": "Review agent reports, accept evidence objects, inspect biomarker roles, and generate a final strategy report.",
+      "lede": "Open each agent report, review detailed evidence cards, choose which findings to include, and generate the final strategy and trial design report.",
       "tabs": [
         {"id": "label", "label": "Label Evidence"},
         {"id": "trial", "label": "Clinical Trial Evidence"},
         {"id": "prevalence", "label": "Prevalence Evidence"},
         {"id": "assay", "label": "Assay Strategy"},
         {"id": "biology", "label": "Biology & Clinical Evidence"},
-        {"id": "strategy", "label": "Biomarker & Trial Strategy"},
+        {"id": "biomarker-strategy", "label": "Biomarker Strategy"},
+        {"id": "trial-design", "label": "Clinical Trial Design"},
         {"id": "final", "label": "Final Report"},
         {"id": "scoring", "label": "Scoring Criteria"}
       ],
@@ -1161,17 +1195,30 @@ window.BIOARCHAI_CONTENT.v2 = {
         "prevalence": {"title": "Prevalence Evidence Report", "summary": "Sensitizing EGFR alterations support feasible selected enrollment in NSCLC, with material variation by ancestry, histology, and smoking history.", "stats": [["Public cohorts", "12"], ["Range", "10-45%"], ["Confidence", "Medium"]]},
         "assay": {"title": "Assay Strategy Report", "summary": "Tissue NGS is the strongest primary eligibility route. Plasma ctDNA is a useful fallback when tissue is unavailable if LoD limitations are explicit.", "stats": [["Assay sources", "14"], ["Definitions", "4"], ["Confidence", "High"]]},
         "biology": {"title": "Biology & Clinical Evidence Report", "summary": "EGFR activating alterations show strong mechanism and clinical-response alignment. Resistance markers are relevant but should not replace the primary selection definition.", "stats": [["Evidence objects", "42"], ["Role classes", "5"], ["Confidence", "High"]]},
-        "strategy": {"title": "Biomarker & Clinical Trial Strategy Report", "summary": "Recommend a biomarker-selected strategy centered on sensitizing EGFR alterations, tissue NGS eligibility, plasma fallback, and prespecified resistance stratification.", "stats": [["Strategy score", "86"], ["Recommendation", "Selected"], ["Risk flags", "3"]]}
+        "biomarker-strategy": {"title": "Biomarker Strategy Agent Report", "summary": "Recommend a patient-selection strategy centered on sensitizing EGFR alterations, supported by tissue-first testing, plasma fallback, and explicit evidence gaps.", "stats": [["Strategy score", "86"], ["Recommendation", "Selected"], ["Risk flags", "3"]]},
+        "trial-design": {"title": "Clinical Trial Design Agent Report", "summary": "Recommend biomarker-selected enrollment with prespecified molecular eligibility, resistance stratification, and an assay pathway that supports operational screening.", "stats": [["Design precedents", "18"], ["Eligibility rules", "6"], ["Confidence", "High"]]}
       },
-      "cardsTitle": "Evidence cards",
-      "cardsDescription": "Accept the evidence objects that should appear in the final report.",
+      "cardsTitle": "Agent evidence cards",
+      "cardsDescription": "Open each card to review its evidence, analysis, sources, and recommendation, then decide whether it belongs in the final report.",
+      "includeFindings": "Include agent findings",
+      "excludeFindings": "Remove agent findings",
+      "findingsIncluded": "Included in final report",
+      "findingsExcluded": "Excluded from final report",
+      "reviewCard": "Review evidence card",
+      "analysisLabel": "Analysis",
+      "sourcesLabel": "Sources",
+      "recommendationLabel": "Recommendation",
       "addToReport": "Add to report",
-      "addedToReport": "Added",
+      "addedToReport": "Included",
+      "removeFromReport": "Remove from report",
       "cards": [
-        {"id": "card-1", "source": "FDA label", "date": "2024 label revision", "claim": "Sensitizing EGFR exon 19 deletion or L858R status defines treatment eligibility for approved EGFR TKI use in advanced NSCLC.", "biomarker": "EGFR exon 19 del / L858R", "confidence": "High", "accepted": true},
-        {"id": "card-2", "source": "ClinicalTrials.gov", "date": "Registry accessed 2026", "claim": "Late-stage EGFR TKI trials use biomarker-selected enrollment with prespecified molecular eligibility criteria.", "biomarker": "Sensitizing EGFR alteration", "confidence": "High", "accepted": true},
-        {"id": "card-3", "source": "AACR GENIE", "date": "Public cohort release", "claim": "EGFR prevalence varies materially across population and histology, affecting enrollment assumptions and site strategy.", "biomarker": "EGFR activating alteration", "confidence": "Medium", "accepted": false},
-        {"id": "card-4", "source": "FDA CDx documentation", "date": "Device summary", "claim": "Validated tissue testing supports primary eligibility; plasma testing requires a negative-result tissue fallback and explicit assay limitations.", "biomarker": "EGFR variant detected", "confidence": "High", "accepted": true}
+        {"id": "card-label-1", "agentId": "label", "title": "Approved patient-selection definition", "source": "FDA label", "date": "2024 label revision", "claim": "Sensitizing EGFR exon 19 deletion or L858R status defines treatment eligibility for approved EGFR TKI use in advanced NSCLC.", "biomarker": "EGFR exon 19 del / L858R", "confidence": "High", "accepted": true, "analysis": "The approved label establishes both predictive relevance and a patient-selection context of use in advanced disease.", "sources": ["FDA prescribing information", "Drugs@FDA approval history", "DailyMed label archive"], "recommendation": "Use the approved sensitizing alteration definition as the regulatory anchor for the strategy."},
+        {"id": "card-trial-1", "agentId": "trial", "title": "Late-stage selected-enrollment precedent", "source": "ClinicalTrials.gov", "date": "Registry accessed 2026", "claim": "Late-stage EGFR TKI trials use biomarker-selected enrollment with prespecified molecular eligibility criteria.", "biomarker": "Sensitizing EGFR alteration", "confidence": "High", "accepted": true, "analysis": "Selected enrollment is the dominant registrational pattern, while molecular subtypes are retained for stratified analysis.", "sources": ["ClinicalTrials.gov registry records", "Eligibility criteria", "Published trial protocols"], "recommendation": "Use selected enrollment and prespecify subtype, CNS, and resistance strata."},
+        {"id": "card-prevalence-1", "agentId": "prevalence", "title": "Population-dependent prevalence range", "source": "AACR GENIE", "date": "Public cohort release", "claim": "EGFR prevalence varies materially across population and histology, affecting enrollment assumptions and site strategy.", "biomarker": "EGFR activating alteration", "confidence": "Medium", "accepted": false, "analysis": "A single global prevalence estimate would obscure ancestry, geography, histology, and smoking-history differences.", "sources": ["AACR GENIE", "TCGA / GDC", "SEER denominator context"], "recommendation": "Model screening and site feasibility using a population-specific range."},
+        {"id": "card-assay-1", "agentId": "assay", "title": "Tissue-first eligibility pathway", "source": "FDA CDx documentation", "date": "Device summary", "claim": "Validated tissue testing supports primary eligibility; plasma testing requires a negative-result tissue fallback and explicit assay limitations.", "biomarker": "EGFR variant detected", "confidence": "High", "accepted": true, "analysis": "Tissue testing provides the strongest eligibility precedent. Plasma testing broadens access but introduces false-negative risk when tumor shedding is low.", "sources": ["FDA CDx device summaries", "Package inserts and IFUs", "Trial assay requirements"], "recommendation": "Use tissue NGS as primary and define a tissue-confirmation pathway after a negative plasma result."},
+        {"id": "card-biology-1", "agentId": "biology", "title": "Mechanism and clinical response alignment", "source": "PubMed / CIViC", "date": "Evidence review 2026", "claim": "Sensitizing EGFR alterations align with oncogenic dependence and clinical response to EGFR inhibition.", "biomarker": "EGFR sensitizing alterations", "confidence": "High", "accepted": true, "analysis": "Mechanistic, clinical, and curated evidence converge on a predictive patient-selection role.", "sources": ["PubMed / PMC", "CIViC", "ClinGen / ClinVar"], "recommendation": "Keep sensitizing EGFR alterations as the primary biomarker and use resistance markers secondarily."},
+        {"id": "card-biomarker-1", "agentId": "biomarker-strategy", "title": "Patient-selection biomarker strategy", "source": "Archai Nexus synthesis", "date": "Current analysis", "claim": "A patient-selection context of use is supported by aligned label, trial, assay, prevalence, and biology evidence.", "biomarker": "Sensitizing EGFR alterations", "confidence": "High", "accepted": true, "analysis": "All five specialized agent reports support a selected strategy, with assay fallback language and population assumptions remaining visible.", "sources": ["Label Evidence Report", "Assay Strategy Report", "Biology & Clinical Evidence Report"], "recommendation": "Advance a selected biomarker strategy and resolve the two open assumptions before approval."},
+        {"id": "card-design-1", "agentId": "trial-design", "title": "Biomarker-selected clinical trial design", "source": "Archai Nexus synthesis", "date": "Current analysis", "claim": "Selected enrollment with prespecified molecular stratification offers the strongest late-stage design for this program.", "biomarker": "EGFR-selected population", "confidence": "High", "accepted": true, "analysis": "Trial precedent, prevalence, and assay feasibility support selected enrollment without sacrificing resistance and CNS subgroup learning.", "sources": ["Clinical Trial Evidence Report", "Prevalence Evidence Report", "Assay Strategy Report"], "recommendation": "Use selected enrollment with subtype, CNS, and resistance stratification and a tissue-first screening pathway."}
       ],
       "definitionTitle": "Assay, Positivity Criteria & Biomarker Definition",
       "definitionRows": [
@@ -1182,20 +1229,21 @@ window.BIOARCHAI_CONTENT.v2 = {
         ["Fallback method", "Plasma ctDNA with tissue confirmation after a negative result"],
         ["Key limitation", "Tumor fraction and assay LoD can create false-negative plasma results"]
       ],
-      "rolesTitle": "Biomarker Role & MVP Status",
+      "rolesTitle": "Biomarker Role Status",
       "roles": [
         {"name": "Predictive", "status": "Active", "detail": "Strong label, trial, curated, and clinical response evidence."},
         {"name": "Patient-selection", "status": "Active", "detail": "Explicit label, CDx, and trial eligibility precedent."},
         {"name": "Enrichment", "status": "Active", "detail": "Supported for early signal-seeking and expansion cohorts."},
         {"name": "Stratification", "status": "Active with caution", "detail": "Useful for mutation subtype, CNS, and resistance analyses."},
         {"name": "Resistance", "status": "Active with caution", "detail": "Use for secondary cohorts and exploratory analysis."},
-        {"name": "Prognostic", "status": "MVP-2", "detail": "Requires validated longitudinal outcome analysis."},
-        {"name": "Pharmacodynamic / target engagement", "status": "MVP-2", "detail": "Requires paired pre/post-treatment or perturbation evidence."},
-        {"name": "Monitoring / MRD / response", "status": "MVP-2", "detail": "Requires longitudinal assay performance and response data."}
+        {"name": "Prognostic", "status": "Not active", "detail": "Requires validated longitudinal outcome analysis."},
+        {"name": "Pharmacodynamic / target engagement", "status": "Not active", "detail": "Requires paired pre/post-treatment or perturbation evidence."},
+        {"name": "Monitoring / MRD / response", "status": "Not active", "detail": "Requires longitudinal assay performance and response data."}
       ],
-      "finalTitle": "Final Biomarker Strategy Report",
-      "finalVersion": "Report v1.4",
-      "finalStatus": "Draft ready",
+      "finalTitle": "Final Biomarker Strategy and Clinical Trial Design Report",
+      "finalVersion": "Decision-ready report",
+      "finalStatus": "Ready for review",
+      "finalRolesTitle": "Biomarker role and intended use",
       "finalSections": [
         {"title": "Executive recommendation", "body": "Use a biomarker-selected development strategy centered on sensitizing EGFR alterations. Keep resistance markers stratified or exploratory unless the program question changes."},
         {"title": "Clinical trial strategy", "body": "Use selected enrollment for registrational development, enriched expansion cohorts where evidence remains early, and prespecified stratification for subtype, CNS, and resistance context."},
@@ -1204,18 +1252,18 @@ window.BIOARCHAI_CONTENT.v2 = {
       ],
       "exportPdf": "Export PDF",
       "exportWord": "Export Word",
-      "wordFilename": "BioArchai_Tx_Archai_V2_Report.doc",
+      "wordFilename": "BioArchai_Tx_Archai_Report.doc",
       "generateReport": "Generate final report",
-      "generatedMessage": "Report v1.5 generated with the current scoring configuration and accepted evidence.",
+      "generatedMessage": "Final report generated with the current decision configuration and selected evidence.",
       "commentAction": "Add comment",
       "shareAction": "Share review"
     },
     "graph": {
       "eyebrow": "Traceability view",
       "title": "Evidence Graph",
-      "lede": "Select a node or relationship to inspect its source evidence, confidence, role status, version, and strategic relevance.",
+      "lede": "Select a node or relationship to inspect its source evidence, confidence, review state, and strategic relevance.",
       "filterLabel": "Filter graph",
-      "filters": ["All evidence", "High confidence", "Labels", "Trials", "Assays", "MVP-1 roles"],
+      "filters": ["All evidence", "High confidence", "Labels", "Trials", "Assays", "Active roles"],
       "detailPlaceholder": "Select a node or relationship to inspect its evidence trail.",
       "nodes": [
         {"id": "drug", "type": "Drug class", "label": "EGFR TKI", "x": 16, "y": 20, "tone": "blue", "confidence": "High", "source": "Project setup", "detail": "Normalized drug-class object used as the strategy anchor."},
@@ -1270,7 +1318,7 @@ window.BIOARCHAI_CONTENT.v2 = {
       "gates": [
         {"title": "Assay readiness gate", "rule": "Block a biomarker-selected Phase III strategy when readiness is below 3 / 5.", "level": "Hard stop"},
         {"title": "Prevalence feasibility gate", "rule": "Flag enrollment risk when prevalence feasibility is 2 / 5 or lower.", "level": "Warning"},
-        {"title": "Biomarker role-status gate", "rule": "MVP-2 roles cannot drive a high-confidence MVP-1 recommendation.", "level": "Hard stop"}
+        {"title": "Biomarker role-status gate", "rule": "Inactive roles cannot drive a high-confidence recommendation.", "level": "Hard stop"}
       ],
       "rationaleLabel": "Rationale for changes",
       "rationalePlaceholder": "Explain why this project requires a change from the default framework.",
@@ -1279,19 +1327,19 @@ window.BIOARCHAI_CONTENT.v2 = {
       "duplicate": "Duplicate template",
       "lock": "Lock template",
       "saveTemplate": "Save configuration",
-      "savedMessage": "Scoring configuration saved as version 1.5.",
+      "savedMessage": "Scoring configuration saved.",
       "auditTitle": "Audit trail",
       "auditRows": [
-        ["Current version", "Archai Default v1.4"],
-        ["Owner", "Demo User"],
+        ["Current framework", "Archai Default"],
+        ["Owner", "Dr. Aisha Morgan"],
         ["Last reviewed", "July 20, 2026"],
-        ["Used by", "Draft report v1.4"]
+        ["Used by", "Current strategy report"]
       ]
     },
     "copilot": {
-      "eyebrow": "Simulated model experience",
+      "eyebrow": "AI-assisted analysis",
       "title": "Archai Copilot",
-      "lede": "Ask questions about the active project. Responses use prepared demo outputs and do not call a live model.",
+      "lede": "Ask questions about the active project and work across the evidence already organized in this workspace.",
       "modelLabel": "Active model",
       "models": ["Strategy Copilot", "Evidence Analyst", "Assay Advisor"],
       "newConversation": "New conversation",
@@ -1313,22 +1361,25 @@ window.BIOARCHAI_CONTENT.v2 = {
       "thinking": "Reviewing project evidence...",
       "sourcesLabel": "Evidence used",
       "clear": "Clear conversation",
-      "responseDisclaimer": "Simulated response for interface preview. Verify all evidence and recommendations before real-world use.",
+      "responseDisclaimer": "AI-assisted response. Verify all evidence and recommendations before external use.",
       "responses": [
         {"title": "Selected strategy rationale", "body": "A selected strategy is supported because sensitizing EGFR alterations have aligned label, clinical trial, biology, and assay precedent. The recommendation is strongest when eligibility uses a validated tissue assay and plasma testing is framed as a fallback with a negative-result tissue confirmation pathway.", "sources": ["Label Evidence Report", "Clinical Trial Evidence Report", "Assay Strategy Report"], "confidence": "High confidence"},
         {"title": "Assay and positivity criteria", "body": "The current definition is sensitizing EGFR exon 19 deletion or L858R-positive NSCLC. Positivity is a qualifying variant detected by a validated assay, not a numeric cutoff. Tissue NGS is primary; plasma ctDNA is a fallback when tissue is unavailable, with LoD limitations stated explicitly.", "sources": ["FDA CDx documentation", "Assay Strategy Report", "Evidence Graph"], "confidence": "High confidence"},
         {"title": "Phase III evidence gaps", "body": "Before pivotal use, confirm the intended line of therapy, lock the exact eligibility variant list, validate plasma fallback language, and add analytical performance evidence from the selected diagnostic partner. These gaps do not invalidate the current direction, but they should remain visible as gates.", "sources": ["Assumptions & Evidence Gaps", "Scoring Criteria", "Assay Strategy Report"], "confidence": "Medium confidence"},
         {"title": "Resistance biomarker role", "body": "Resistance markers such as C797S or MET amplification are best used for stratification, secondary cohorts, or exploratory analyses in this project. They should not replace sensitizing EGFR alterations as the primary patient-selection definition unless the asset mechanism or trial objective changes.", "sources": ["Biology & Clinical Evidence Report", "Trial Strategy Report"], "confidence": "High confidence"},
         {"title": "Prevalence and enrollment", "body": "Public cohorts suggest the selected population is operationally feasible, but prevalence varies by ancestry, histology, geography, and assay coverage. Site selection and screening assumptions should therefore use a range rather than a single global percentage.", "sources": ["Prevalence Evidence Report", "AACR GENIE", "SEER context"], "confidence": "Medium confidence"},
-        {"title": "Scoring transparency", "body": "The default score is 86 and maps to a Selected recommendation. Assay readiness, clinical evidence, and label or trial precedent drive most of the result. Custom weights can change the score, but hard gates still prevent unsupported MVP-2 roles from driving a high-confidence recommendation.", "sources": ["Scoring Criteria v1.4", "Audit trail", "Biomarker Role & MVP Status"], "confidence": "High confidence"}
+        {"title": "Scoring transparency", "body": "The default score is 86 and maps to a Selected recommendation. Assay readiness, clinical evidence, and label or trial precedent drive most of the result. Custom weights can change the score, but hard gates still prevent unsupported role definitions from driving a high-confidence recommendation.", "sources": ["Scoring Criteria", "Audit trail", "Final Biomarker Strategy and Clinical Trial Design Report"], "confidence": "High confidence"}
       ]
     },
     "toasts": {
       "projectCreated": "Project created. The evidence plan is ready.",
-      "agentsComplete": "Agent run complete. Six reports are available.",
+      "agentsComplete": "Agent run complete. Seven reports are available.",
+      "agentComplete": "The selected agent report is ready.",
       "evidenceUpdated": "Final report evidence updated.",
-      "downloadStarted": "Preparing the simulated export...",
-      "signedOut": "You have been signed out of the demo workspace."
+      "reportOpened": "Previous project report opened.",
+      "reportDownloaded": "Previous project report download started.",
+      "downloadStarted": "Preparing the export...",
+      "signedOut": "You have been signed out of the workspace."
     }
   }
 };

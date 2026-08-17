@@ -6,7 +6,7 @@
   const page = document.body.dataset.v2Page;
 
   if (!content || !root) {
-    console.error("BioArchai V2 content failed to load.");
+    console.error("BioArchai content failed to load.");
     return;
   }
 
@@ -94,7 +94,6 @@
             <a href="#principles">${common.navPrinciples}</a>
           </nav>
           <div class="marketing-actions">
-            <a class="quiet-link" href="../v1/" aria-label="${common.externalAria}">${common.viewV1}</a>
             <a class="button button-ghost" href="login.html">${common.signIn}</a>
             <a class="button button-primary" href="${solutionUrl("tx")}">${buttonContent(common.launchWorkspace, "arrow_forward")}</a>
           </div>
@@ -107,7 +106,7 @@
           <div class="hero-grid-overlay" aria-hidden="true"></div>
           <div class="marketing-container hero-content">
             <div class="hero-copy reveal">
-              <div class="eyebrow-row"><span class="pulse-dot"></span><span>${landing.eyebrow}</span><span class="version-badge">${common.version}</span></div>
+              <div class="eyebrow-row"><span class="pulse-dot"></span><span>${landing.eyebrow}</span></div>
               <h1>${landing.headline}</h1>
               <p>${landing.lede}</p>
               <div class="hero-actions">
@@ -116,14 +115,13 @@
               </div>
             </div>
             <div class="hero-map-legend reveal">
-              <div class="map-legend-top"><span>${landing.heroSignalLabel}</span><strong><i></i>${landing.heroSignalStatus}</strong></div>
-              <div class="map-agent-list">
-                ${landing.heroSignals.map((signal, index) => `<span><b>${String(index + 1).padStart(2, "0")}</b>${signal}</span>`).join("")}
+              <div class="map-legend-top"><span>${common.product}</span><strong><i></i>${landing.heroSignalStatus}</strong></div>
+              <div class="hero-flow-table">
+                <div class="hero-flow-group is-input"><small>${landing.heroSignalLabel}</small>${landing.heroSignals.map((signal, index) => `<span><b>${String(index + 1).padStart(2, "0")}</b>${signal}</span>`).join("")}</div>
+                <div class="hero-flow-core">${icon("hub")}<small>${common.brand}</small><strong>${common.product}</strong></div>
+                <div class="hero-flow-group is-output"><small>${landing.heroOutputLabel}</small>${landing.heroOutputs.map((output, index) => `<span><b>${String(index + 1).padStart(2, "0")}</b>${output}</span>`).join("")}</div>
               </div>
             </div>
-          </div>
-          <div class="marketing-container trust-strip reveal">
-            ${landing.trustItems.map((item) => `<span>${icon("check_circle")} ${item}</span>`).join("")}
           </div>
         </section>
 
@@ -145,6 +143,7 @@
                   <h3>${solution.name}</h3>
                   <p class="solution-audience">${solution.audience}</p>
                   <p>${solution.description}</p>
+                  <ul class="solution-capability-list">${solution.capabilities.map((capability) => `<li>${icon("check")}${capability}</li>`).join("")}</ul>
                   <a href="${solutionUrl(solution.id)}">${solution.action}${icon("arrow_forward")}</a>
                 </article>`).join("")}
             </div>
@@ -188,7 +187,7 @@
 
         <section class="marketing-cta">
           <div class="marketing-container cta-layout reveal">
-            <div><p class="section-kicker">${common.previewNote}</p><h2>${landing.ctaTitle}</h2><p>${landing.ctaLede}</p></div>
+            <div><p class="section-kicker">${landing.ctaEyebrow}</p><h2>${landing.ctaTitle}</h2><p>${landing.ctaLede}</p></div>
             <a class="button button-primary button-large" href="${solutionUrl("tx")}">${buttonContent(common.launchWorkspace, "arrow_forward")}</a>
           </div>
         </section>
@@ -198,7 +197,7 @@
         <div class="marketing-container footer-layout">
           <div>${brand("./", true)}<p>${common.copyright}</p></div>
           <div class="footer-link-group"><strong>${landing.footerProduct}</strong>${landing.footerLinks.map((link) => `<a href="login.html">${link}</a>`).join("")}</div>
-          <div class="footer-link-group"><strong>${landing.footerCompany}</strong><a href="../v1/">${common.viewV1}</a><a href="../v1/demo.html">${common.requestDemo}</a></div>
+          <div class="footer-link-group"><strong>${landing.footerCompany}</strong>${landing.footerCompanyLinks.map((link) => `<a href="${link.href}">${link.label}</a>`).join("")}<a class="footer-demo-link" href="../demo.html">${buttonContent(common.requestDemo, "arrow_forward")}</a></div>
         </div>
       </footer>`;
 
@@ -211,11 +210,15 @@
     const canvas = document.querySelector("[data-nexus-canvas]");
     if (!(canvas instanceof HTMLCanvasElement)) return;
     const context = canvas.getContext("2d");
-    const labels = landing.heroSignals;
+    const sourceLabels = landing.heroSignals;
+    const outputLabels = landing.heroOutputs;
     let width = 0;
     let height = 0;
     let frame = 0;
-    const points = [];
+    let core = null;
+    const sourcePoints = [];
+    const outputPoints = [];
+    const animate = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
@@ -225,36 +228,39 @@
       canvas.width = Math.round(width * ratio);
       canvas.height = Math.round(height * ratio);
       context.setTransform(ratio, 0, 0, ratio, 0, 0);
-      points.length = 0;
-      const originX = width * 0.73;
-      const originY = height * 0.44;
-      labels.forEach((label, index) => {
-        const angle = (Math.PI * 2 * index) / labels.length - Math.PI / 2;
-        const radiusX = Math.min(width * 0.24, 360);
-        const radiusY = Math.min(height * 0.29, 230);
-        points.push({
+      sourcePoints.length = 0;
+      outputPoints.length = 0;
+      core = { x: width * 0.79, y: height * 0.43 };
+      sourceLabels.forEach((label, index) => {
+        sourcePoints.push({
           label,
-          x: originX + Math.cos(angle) * radiusX,
-          y: originY + Math.sin(angle) * radiusY,
+          x: width * 0.61,
+          y: height * (0.17 + index * 0.13),
           phase: index * 0.8
         });
       });
-      points.push({ label: common.product, x: originX, y: originY, core: true, phase: 0 });
+      outputLabels.forEach((label, index) => {
+        outputPoints.push({
+          label,
+          x: width * 0.94,
+          y: height * (0.34 + index * 0.21),
+          phase: 2.4 + index
+        });
+      });
     };
 
     const draw = () => {
       context.clearRect(0, 0, width, height);
-      const core = points[points.length - 1];
-      points.slice(0, -1).forEach((point, index) => {
+      sourcePoints.forEach((point, index) => {
         const pulse = (Math.sin(frame * 0.018 + point.phase) + 1) / 2;
         context.beginPath();
-        context.moveTo(core.x, core.y);
-        context.lineTo(point.x, point.y);
+        context.moveTo(point.x, point.y);
+        context.lineTo(core.x, core.y);
         context.strokeStyle = `rgba(58, 200, 181, ${0.12 + pulse * 0.14})`;
         context.lineWidth = 1;
         context.stroke();
 
-        const travel = (frame * 0.0025 + index / labels.length) % 1;
+        const travel = (frame * 0.0025 + index / sourceLabels.length) % 1;
         const signalX = point.x + (core.x - point.x) * travel;
         const signalY = point.y + (core.y - point.y) * travel;
         context.beginPath();
@@ -263,15 +269,45 @@
         context.fill();
 
         context.beginPath();
-        context.arc(point.x, point.y, 6 + pulse * 2, 0, Math.PI * 2);
+        context.arc(point.x, point.y, 7 + pulse * 2, 0, Math.PI * 2);
         context.fillStyle = "rgba(8, 20, 29, 0.92)";
         context.fill();
         context.strokeStyle = "rgba(97, 221, 204, 0.7)";
         context.stroke();
         context.fillStyle = "rgba(215, 235, 235, 0.72)";
-        context.font = "500 12px Inter, system-ui, sans-serif";
-        context.textAlign = point.x < core.x ? "right" : "left";
-        context.fillText(point.label, point.x + (point.x < core.x ? -14 : 14), point.y + 4);
+        context.font = "600 8px Inter, system-ui, sans-serif";
+        context.textAlign = "center";
+        context.fillText(String(index + 1).padStart(2, "0"), point.x, point.y + 3);
+      });
+
+      outputPoints.forEach((point, index) => {
+        const pulse = (Math.sin(frame * 0.018 + point.phase) + 1) / 2;
+        context.beginPath();
+        context.moveTo(core.x, core.y);
+        context.lineTo(point.x, point.y);
+        context.strokeStyle = `rgba(91, 168, 232, ${0.18 + pulse * 0.18})`;
+        context.lineWidth = 1.5;
+        context.stroke();
+
+        const travel = (frame * 0.0028 + index / outputLabels.length) % 1;
+        const signalX = core.x + (point.x - core.x) * travel;
+        const signalY = core.y + (point.y - core.y) * travel;
+        context.beginPath();
+        context.arc(signalX, signalY, 2.4, 0, Math.PI * 2);
+        context.fillStyle = "rgba(118, 197, 255, 0.92)";
+        context.fill();
+
+        context.beginPath();
+        context.arc(point.x, point.y, 12 + pulse * 2, 0, Math.PI * 2);
+        context.fillStyle = "rgba(10, 28, 42, 0.96)";
+        context.fill();
+        context.strokeStyle = "rgba(118, 197, 255, 0.85)";
+        context.lineWidth = 1.4;
+        context.stroke();
+        context.fillStyle = "rgba(226, 246, 255, 0.92)";
+        context.font = "700 9px Inter, system-ui, sans-serif";
+        context.textAlign = "center";
+        context.fillText(landing.heroOutputMarks[index], point.x, point.y + 3);
       });
 
       const corePulse = (Math.sin(frame * 0.02) + 1) / 2;
@@ -294,13 +330,13 @@
       context.textAlign = "center";
       context.fillText(common.nexusCoreLabel, core.x, core.y + 4);
       frame += 1;
-      requestAnimationFrame(draw);
+      if (animate) requestAnimationFrame(draw);
     };
 
     resize();
     window.addEventListener("resize", resize);
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) draw();
-    else requestAnimationFrame(draw);
+    if (animate) requestAnimationFrame(draw);
+    else draw();
   };
 
   const renderLogin = () => {
@@ -314,7 +350,6 @@
               <p class="section-kicker">${login.eyebrow}</p>
               <h1>${login.title}</h1>
               <p class="login-lede">${login.lede}</p>
-              <div class="demo-access-note">${icon("info")}<span>${login.noCredentials}</span></div>
               <form data-login-form novalidate>
                 <label class="field"><span>${login.emailLabel}</span><input type="email" autocomplete="email" placeholder="${login.emailPlaceholder}"></label>
                 <label class="field"><span>${login.passwordLabel}</span><input type="password" autocomplete="current-password" placeholder="${login.passwordPlaceholder}"></label>
@@ -361,12 +396,15 @@
 
   const appState = {
     activeView: "overview",
-    activeReport: "strategy",
+    activeReport: "biomarker-strategy",
     acceptedCards: new Set(workspace.evidence.cards.filter((card) => card.accepted).map((card) => card.id)),
+    includedReports: new Set(workspace.evidence.tabs.filter((tab) => !["final", "scoring"].includes(tab.id)).map((tab) => tab.id)),
+    agentStatuses: Object.fromEntries(workspace.agents.items.map((agent) => [agent.id, agent.status])),
     weights: Object.fromEntries(workspace.scoring.dimensions.map((dimension) => [dimension.id, dimension.weight])),
     defaultWeights: Object.fromEntries(workspace.scoring.dimensions.map((dimension) => [dimension.id, dimension.weight])),
     chatMessages: [],
-    agentRunTimer: null
+    agentRunTimer: null,
+    agentTimers: new Map()
   };
 
   const renderWorkspaceShell = () => {
@@ -374,7 +412,7 @@
     root.innerHTML = `
       <div class="app-shell">
         <aside class="app-sidebar" data-app-sidebar>
-          <div class="sidebar-brand-row">${brand("./", true)}<span>${common.version}</span></div>
+          <div class="sidebar-brand-row">${brand("./", true)}</div>
           <div class="workspace-switcher">
             <span class="workspace-switcher-icon">${workspace.workspaceInitials}</span>
             <div><small>${common.active}</small><strong>${workspace.workspaceName}</strong></div>
@@ -385,7 +423,6 @@
           </nav>
           <div class="sidebar-bottom">
             <p>${common.demoDisclaimer}</p>
-            <a href="../v1/">${icon("history")}<span>${common.viewV1}</span></a>
           </div>
         </aside>
 
@@ -451,7 +488,7 @@
   const projectStrip = () => `
     <div class="project-strip">
       <span><small>${common.status}</small><strong><i></i>${workspace.projectStatus}</strong></span>
-      <span><small>${common.version}</small><strong>${workspace.projectVersion}</strong></span>
+      <span><small>${workspace.analysisLabel}</small><strong>${workspace.projectVersion}</strong></span>
       <span><small>${workspace.projectCode}</small><strong>${workspace.projectUpdated}</strong></span>
       <span><small>${workspace.projectOwner}</small><strong>${workspace.projectName}</strong></span>
     </div>`;
@@ -460,9 +497,22 @@
     const data = workspace.overview;
     return `
       ${viewHeader(data.eyebrow, data.title, data.lede, `<button class="button button-primary" type="button" data-overview-resume>${buttonContent(data.resume, "arrow_forward")}</button><button class="button button-secondary" type="button" data-overview-copilot>${buttonContent(data.askCopilot, "auto_awesome")}</button>`)}
+      <section class="review-status-banner">
+        <span class="review-status-icon">${icon("task_alt")}</span>
+        <div><p class="workspace-eyebrow">${data.statusEyebrow}</p><h2>${data.statusTitle}</h2><p>${data.statusDetail}</p></div>
+        <strong><i></i>${data.statusBadge}</strong>
+      </section>
       ${projectStrip()}
       <section class="metric-grid">
         ${data.metrics.map((metric) => `<article class="metric-card"><span>${icon(metric.icon)}</span><div><small>${metric.label}</small><strong>${metric.value}</strong><p>${metric.detail}</p></div></article>`).join("")}
+      </section>
+      <section class="workspace-panel previous-reports-panel">
+        <div class="panel-heading"><div><h2>${data.previousReportsTitle}</h2><p>${data.previousReportsLede}</p></div><span class="count-badge">${data.previousReports.length}</span></div>
+        <div class="previous-report-list">${data.previousReports.map((report) => `<article>
+          <div class="previous-report-main"><span>${report.code}</span><h3>${report.name}</h3><p>${report.detail}</p></div>
+          <div class="previous-report-state"><strong>${report.status}</strong><span>${report.updated}</span></div>
+          <div class="previous-report-actions"><button class="button button-quiet" type="button" data-open-previous-report>${buttonContent(report.status === common.complete ? data.openReport : data.revisitProject, "arrow_forward")}</button><a class="icon-button" href="${buildPreviousReportHref(report)}" download="${report.file}" data-download-previous-report aria-label="${data.downloadAria}" title="${data.downloadReport}">${icon("download")}</a></div>
+        </article>`).join("")}</div>
       </section>
       <div class="overview-columns">
         <section class="workspace-panel activity-panel"><div class="panel-heading"><h2>${data.activityTitle}</h2><button class="icon-button" type="button" aria-label="${common.moreActionsAria}">${icon("more_horiz")}</button></div><div class="activity-list">${data.activity.map((item) => `<article><span>${item.time}</span><div><strong>${item.title}</strong><p>${item.detail}</p></div></article>`).join("")}</div></section>
@@ -470,19 +520,23 @@
       </div>`;
   };
 
+  function buildPreviousReportHref(report) {
+    const data = workspace.overview;
+    const documentMarkup = `<!doctype html><html><head><meta charset="utf-8"><title>${report.name}</title></head><body><h1>${report.name}</h1><p>${report.detail}</p><h2>${data.previousReportStatusLabel}</h2><p>${report.status}</p><h2>${data.previousReportUpdatedLabel}</h2><p>${report.updated}</p></body></html>`;
+    return `data:application/msword;charset=utf-8,${encodeURIComponent(documentMarkup)}`;
+  }
+
   const renderSetupView = () => {
     const data = workspace.setup;
     return `
       ${viewHeader(data.eyebrow, data.title, data.lede, `<button class="button button-secondary" type="button" data-use-sample>${buttonContent(data.sampleAction, "auto_fix_high")}</button>`)}
       <div class="setup-layout">
         <form class="workspace-panel setup-form" data-setup-form novalidate>
-          <div class="form-section-heading"><h2>${data.sectionRequired}</h2><span>${common.required}</span></div>
+          <div class="form-section-heading"><div><h2>${data.sectionTitle}</h2><p>${data.sectionLede}</p></div></div>
           <div class="form-grid two-column">
-            <label class="field"><span>${data.drugLabel}<b>${common.required}</b></span><input name="drug" placeholder="${data.drugPlaceholder}"></label>
-            <label class="field"><span>${data.indicationLabel}<b>${common.required}</b></span><input name="indication" placeholder="${data.indicationPlaceholder}"></label>
-          </div>
-          <div class="form-section-heading secondary-heading"><h2>${data.sectionOptional}</h2><span>${common.optional}</span></div>
-          <div class="form-grid two-column">
+            <label class="field"><span>${data.drugLabel}</span><input name="drug" placeholder="${data.drugPlaceholder}"></label>
+            <label class="field"><span>${data.indicationLabel}</span><input name="indication" placeholder="${data.indicationPlaceholder}"></label>
+            <label class="field field-full"><span>${data.contextUseLabel}</span><select name="contextUse">${data.contextUseOptions.map((option) => `<option>${option}</option>`).join("")}</select></label>
             <label class="field"><span>${data.phaseLabel}</span><select name="phase">${data.phaseOptions.map((option) => `<option>${option}</option>`).join("")}</select></label>
             <label class="field"><span>${data.lineLabel}</span><input name="line" placeholder="${data.linePlaceholder}"></label>
             <label class="field"><span>${data.subtypeLabel}</span><input name="subtype" placeholder="${data.subtypePlaceholder}"></label>
@@ -502,14 +556,27 @@
       ${viewHeader(data.eyebrow, data.title, data.lede, `<button class="button button-primary" type="button" data-run-agents>${buttonContent(data.runAction, "play_arrow")}</button>`)}
       <div class="agent-progress workspace-panel" data-agent-progress><div><span>${data.progressReady}</span><strong>100%</strong></div><div class="progress-track"><i style="width:100%"></i></div></div>
       <section class="agent-grid">
-        ${data.items.map((agent) => `
+        ${data.items.map((agent) => {
+          const status = appState.agentStatuses[agent.id];
+          const busy = status === common.running || status === common.queued;
+          return `
           <article class="agent-card tone-${agent.tone}" data-agent-id="${agent.id}">
-            <div class="agent-card-top"><span class="agent-order">${agent.order}</span><span class="agent-status is-complete" data-agent-status>${icon("check_circle")}<b>${agent.status}</b></span></div>
+            <div class="agent-card-top"><span class="agent-order">${agent.order}</span>${renderAgentStatus(status)}</div>
+            <span class="agent-category">${agent.category}</span>
             <h2>${agent.name}</h2>
             <div class="agent-resources"><strong>${data.sourceLabel}</strong><ul>${agent.resources.map((resource) => `<li>${resource}</li>`).join("")}</ul></div>
-            <button class="text-action" type="button" data-agent-report="${agent.id}">${common.viewReport}${icon("arrow_forward")}</button>
-          </article>`).join("")}
+            <div class="agent-card-actions"><button class="text-action" type="button" data-agent-report="${agent.id}">${common.viewReport}${icon("arrow_forward")}</button><button class="button button-quiet" type="button" data-run-agent="${agent.id}" ${busy ? "disabled" : ""}>${buttonContent(status === common.complete ? data.rerunAgentAction : data.runAgentAction, status === common.complete ? "replay" : "play_arrow")}</button></div>
+          </article>`;
+        }).join("")}
       </section>`;
+  };
+
+  const renderAgentStatus = (status) => {
+    const isComplete = status === common.complete;
+    const isRunning = status === common.running;
+    const stateClass = isComplete ? "is-complete" : isRunning ? "is-running" : "is-queued";
+    const statusIcon = isComplete ? "check_circle" : isRunning ? "progress_activity" : "schedule";
+    return `<span class="agent-status ${stateClass}" data-agent-status>${icon(statusIcon, isRunning ? "spin" : "")}<b>${status}</b></span>`;
   };
 
   const renderEvidenceView = () => {
@@ -526,19 +593,19 @@
     const data = workspace.evidence;
     if (reportId === "final") return renderFinalReportPanel();
     if (reportId === "scoring") return renderScoringShortcutPanel();
-    const report = data.reports[reportId] || data.reports.strategy;
-    const showDefinition = reportId === "assay" || reportId === "strategy";
-    const showRoles = reportId === "biology" || reportId === "strategy";
+    const report = data.reports[reportId] || data.reports["biomarker-strategy"];
+    const reportCards = data.cards.filter((card) => card.agentId === reportId);
+    const findingsIncluded = appState.includedReports.has(reportId);
+    const showDefinition = reportId === "assay";
     return `
       <section class="agent-report-panel">
-        <div class="report-summary"><div><p class="workspace-eyebrow">${workspace.projectVersion}</p><h2>${report.title}</h2><p>${report.summary}</p></div><div class="report-stat-grid">${report.stats.map(([label, value]) => `<span><small>${label}</small><strong>${value}</strong></span>`).join("")}</div></div>
+        <div class="report-summary"><div><p class="workspace-eyebrow">${workspace.projectVersion}</p><h2>${report.title}</h2><p>${report.summary}</p><div class="report-inclusion-control"><span class="${findingsIncluded ? "is-included" : "is-excluded"}">${icon(findingsIncluded ? "check_circle" : "remove_circle")}<b>${findingsIncluded ? data.findingsIncluded : data.findingsExcluded}</b></span><button class="button button-quiet" type="button" data-report-toggle="${reportId}">${buttonContent(findingsIncluded ? data.excludeFindings : data.includeFindings, findingsIncluded ? "remove" : "add")}</button></div></div><div class="report-stat-grid">${report.stats.map(([label, value]) => `<span><small>${label}</small><strong>${value}</strong></span>`).join("")}</div></div>
         <div class="report-section-heading"><div><h3>${data.cardsTitle}</h3><p>${data.cardsDescription}</p></div></div>
-        <div class="evidence-card-list">${data.cards.map((card) => {
+        <div class="evidence-card-list">${reportCards.map((card) => {
           const accepted = appState.acceptedCards.has(card.id);
-          return `<article class="evidence-card ${accepted ? "is-accepted" : ""}"><div class="evidence-card-meta"><span>${card.source}</span><span>${card.date}</span><span class="confidence-badge">${card.confidence}</span></div><p>${card.claim}</p><div class="evidence-card-footer"><strong>${card.biomarker}</strong><button type="button" data-evidence-toggle="${card.id}">${icon(accepted ? "check" : "add")}<span>${accepted ? data.addedToReport : data.addToReport}</span></button></div></article>`;
+          return `<article class="evidence-card ${accepted ? "is-accepted" : ""}"><div class="evidence-card-meta"><span>${card.source}</span><span>${card.date}</span><span class="confidence-badge">${card.confidence}</span></div><h4>${card.title}</h4><p>${card.claim}</p><details><summary>${data.reviewCard}${icon("expand_more")}</summary><div class="evidence-card-details"><section><strong>${data.analysisLabel}</strong><p>${card.analysis}</p></section><section><strong>${data.sourcesLabel}</strong><ul>${card.sources.map((source) => `<li>${source}</li>`).join("")}</ul></section><section><strong>${data.recommendationLabel}</strong><p>${card.recommendation}</p></section></div></details><div class="evidence-card-footer"><strong>${card.biomarker}</strong><button type="button" data-evidence-toggle="${card.id}">${icon(accepted ? "remove" : "add")}<span>${accepted ? data.removeFromReport : data.addToReport}</span></button></div></article>`;
         }).join("")}</div>
         ${showDefinition ? `<section class="report-detail-section"><h3>${data.definitionTitle}</h3><div class="definition-table">${data.definitionRows.map(([label, value]) => `<div><span>${label}</span><strong>${value}</strong></div>`).join("")}</div></section>` : ""}
-        ${showRoles ? `<section class="report-detail-section"><h3>${data.rolesTitle}</h3><div class="role-grid">${data.roles.map((role) => `<article class="role-item ${role.status === common.inactive ? "is-inactive" : ""}"><div><strong>${role.name}</strong><span>${role.status}</span></div><p>${role.detail}</p></article>`).join("")}</div></section>` : ""}
       </section>`;
   };
 
@@ -547,7 +614,7 @@
     return `
       <section class="final-report-panel">
         <div class="final-report-toolbar"><div><p class="workspace-eyebrow">${data.finalVersion}</p><h2>${data.finalTitle}</h2><span class="draft-badge">${data.finalStatus}</span></div><div><button class="button button-secondary" type="button" data-comment-report>${buttonContent(data.commentAction, "add_comment")}</button><button class="button button-secondary" type="button" data-share-report>${buttonContent(data.shareAction, "ios_share")}</button></div></div>
-        <div class="final-report-layout"><article class="report-document">${data.finalSections.map((section, index) => `<section><span>${String(index + 1).padStart(2, "0")}</span><div><h3>${section.title}</h3><p>${section.body}</p></div></section>`).join("")}</article><aside class="export-panel"><span class="panel-icon">${icon("description")}</span><h3>${data.generateReport}</h3><p>${common.demoDisclaimer}</p><button class="button button-primary button-full" type="button" data-export-pdf>${buttonContent(data.exportPdf, "picture_as_pdf")}</button><a class="button button-secondary button-full" href="${buildWordReportHref()}" download="${data.wordFilename}" data-export-word>${buttonContent(data.exportWord, "download")}</a><p class="generated-status" data-generated-status hidden>${data.generatedMessage}</p></aside></div>
+        <div class="final-report-layout"><article class="report-document">${data.finalSections.map((section, index) => `<section><span>${String(index + 1).padStart(2, "0")}</span><div><h3>${section.title}</h3><p>${section.body}</p></div></section>`).join("")}<section class="final-role-section"><span>${String(data.finalSections.length + 1).padStart(2, "0")}</span><div><h3>${data.finalRolesTitle}</h3><div class="final-role-list">${data.roles.map((role) => `<article class="${role.status === common.inactive ? "is-inactive" : ""}"><div><strong>${role.name}</strong><span>${role.status}</span></div><p>${role.detail}</p></article>`).join("")}</div></div></section></article><aside class="export-panel"><span class="panel-icon">${icon("description")}</span><h3>${data.generateReport}</h3><p>${common.demoDisclaimer}</p><button class="button button-primary button-full" type="button" data-export-pdf>${buttonContent(data.exportPdf, "picture_as_pdf")}</button><a class="button button-secondary button-full" href="${buildWordReportHref()}" download="${data.wordFilename}" data-export-word>${buttonContent(data.exportWord, "download")}</a><p class="generated-status" data-generated-status hidden>${data.generatedMessage}</p></aside></div>
       </section>`;
   };
 
@@ -656,6 +723,12 @@
     document.querySelector("[data-overview-resume]")?.addEventListener("click", () => setWorkspaceView("evidence"));
     document.querySelector("[data-overview-copilot]")?.addEventListener("click", () => setWorkspaceView("copilot"));
     document.querySelectorAll("[data-attention-action]").forEach((button) => button.addEventListener("click", () => setWorkspaceView("evidence")));
+    document.querySelectorAll("[data-open-previous-report]").forEach((button) => button.addEventListener("click", () => {
+      appState.activeReport = "final";
+      setWorkspaceView("evidence");
+      showToast(workspace.toasts.reportOpened);
+    }));
+    document.querySelectorAll("[data-download-previous-report]").forEach((link) => link.addEventListener("click", () => showToast(workspace.toasts.reportDownloaded)));
   };
 
   const bindSetup = () => {
@@ -664,6 +737,7 @@
     document.querySelector("[data-use-sample]")?.addEventListener("click", () => {
       form.elements.drug.value = data.sampleDrug;
       form.elements.indication.value = data.sampleIndication;
+      form.elements.contextUse.value = data.sampleContextUse;
       form.elements.phase.value = data.samplePhase;
       form.elements.line.value = data.sampleLine;
       form.elements.subtype.value = data.sampleSubtype;
@@ -690,48 +764,73 @@
       appState.activeReport = button.dataset.agentReport;
       setWorkspaceView("evidence");
     }));
+    document.querySelectorAll("[data-run-agent]").forEach((button) => button.addEventListener("click", () => runSingleAgent(button.dataset.runAgent)));
     document.querySelector("[data-run-agents]")?.addEventListener("click", runAgentDemo);
+  };
+
+  const updateAgentStatus = (agentId, status) => {
+    appState.agentStatuses[agentId] = status;
+    const card = document.querySelector(`[data-agent-id="${agentId}"]`);
+    if (!card) return;
+    const statusElement = card.querySelector("[data-agent-status]");
+    if (statusElement) statusElement.outerHTML = renderAgentStatus(status);
+    const runButton = card.querySelector("[data-run-agent]");
+    if (!runButton) return;
+    const busy = status === common.running || status === common.queued;
+    runButton.disabled = busy;
+    runButton.innerHTML = buttonContent(status === common.complete ? workspace.agents.rerunAgentAction : workspace.agents.runAgentAction, status === common.complete ? "replay" : "play_arrow");
+  };
+
+  const updateAgentProgress = (label, percent) => {
+    const progress = document.querySelector("[data-agent-progress]");
+    if (!progress) return;
+    progress.querySelector("span").textContent = label;
+    progress.querySelector("strong").textContent = `${percent}%`;
+    progress.querySelector("i").style.width = `${percent}%`;
   };
 
   const runAgentDemo = () => {
     if (appState.agentRunTimer) window.clearInterval(appState.agentRunTimer);
-    const cards = [...document.querySelectorAll("[data-agent-id]")];
-    const progress = document.querySelector("[data-agent-progress]");
-    cards.forEach((card, index) => {
-      const status = card.querySelector("[data-agent-status]");
-      status.className = "agent-status is-queued";
-      status.innerHTML = `${icon("schedule")}<b>${common.queued}</b>`;
-      if (index === 0) {
-        status.className = "agent-status is-running";
-        status.innerHTML = `${icon("progress_activity", "spin")}<b>${common.running}</b>`;
-      }
+    appState.agentTimers.forEach((timer) => window.clearTimeout(timer));
+    appState.agentTimers.clear();
+    const agentIds = workspace.agents.items.map((agent) => agent.id);
+    agentIds.forEach((agentId, index) => {
+      updateAgentStatus(agentId, index === 0 ? common.running : common.queued);
     });
-    progress.innerHTML = `<div><span>${workspace.agents.progressRunning}</span><strong>0%</strong></div><div class="progress-track"><i style="width:0%"></i></div>`;
+    const runAllButton = document.querySelector("[data-run-agents]");
+    if (runAllButton) runAllButton.disabled = true;
+    updateAgentProgress(workspace.agents.progressRunning, 0);
     let completed = 0;
     appState.agentRunTimer = window.setInterval(() => {
-      const current = cards[completed];
-      if (current) {
-        const status = current.querySelector("[data-agent-status]");
-        status.className = "agent-status is-complete";
-        status.innerHTML = `${icon("check_circle")}<b>${common.complete}</b>`;
-      }
+      const current = agentIds[completed];
+      if (current) updateAgentStatus(current, common.complete);
       completed += 1;
-      const next = cards[completed];
-      if (next) {
-        const status = next.querySelector("[data-agent-status]");
-        status.className = "agent-status is-running";
-        status.innerHTML = `${icon("progress_activity", "spin")}<b>${common.running}</b>`;
-      }
-      const percent = Math.min(Math.round((completed / cards.length) * 100), 100);
-      progress.querySelector("strong").textContent = `${percent}%`;
-      progress.querySelector("i").style.width = `${percent}%`;
-      if (completed >= cards.length) {
+      const next = agentIds[completed];
+      if (next) updateAgentStatus(next, common.running);
+      const percent = Math.min(Math.round((completed / agentIds.length) * 100), 100);
+      updateAgentProgress(workspace.agents.progressRunning, percent);
+      if (completed >= agentIds.length) {
         window.clearInterval(appState.agentRunTimer);
         appState.agentRunTimer = null;
-        progress.querySelector("span").textContent = workspace.agents.progressComplete;
+        if (runAllButton) runAllButton.disabled = false;
+        updateAgentProgress(workspace.agents.progressComplete, 100);
         showToast(workspace.toasts.agentsComplete);
       }
     }, 520);
+  };
+
+  const runSingleAgent = (agentId) => {
+    const existingTimer = appState.agentTimers.get(agentId);
+    if (existingTimer) window.clearTimeout(existingTimer);
+    updateAgentStatus(agentId, common.running);
+    updateAgentProgress(workspace.agents.progressIndividual, 0);
+    const timer = window.setTimeout(() => {
+      updateAgentStatus(agentId, common.complete);
+      updateAgentProgress(workspace.agents.individualComplete, 100);
+      appState.agentTimers.delete(agentId);
+      showToast(workspace.toasts.agentComplete);
+    }, 900);
+    appState.agentTimers.set(agentId, timer);
   };
 
   const bindEvidence = () => {
@@ -770,6 +869,13 @@
       showToast(workspace.toasts.evidenceUpdated);
       updateReportPanel();
     }));
+    panel.querySelector("[data-report-toggle]")?.addEventListener("click", (event) => {
+      const reportId = event.currentTarget.dataset.reportToggle;
+      if (appState.includedReports.has(reportId)) appState.includedReports.delete(reportId);
+      else appState.includedReports.add(reportId);
+      showToast(workspace.toasts.evidenceUpdated);
+      updateReportPanel();
+    });
     panel.querySelector("[data-open-scoring]")?.addEventListener("click", () => setWorkspaceView("scoring"));
     panel.querySelector("[data-export-pdf]")?.addEventListener("click", () => window.print());
     panel.querySelector("[data-export-word]")?.addEventListener("click", () => showToast(workspace.toasts.downloadStarted));
@@ -778,7 +884,7 @@
 
   function buildWordReportHref() {
     const data = workspace.evidence;
-    const documentMarkup = `<!doctype html><html><head><meta charset="utf-8"><title>${data.finalTitle}</title></head><body><h1>${data.finalTitle}</h1><p>${data.finalVersion}</p>${data.finalSections.map((section) => `<h2>${section.title}</h2><p>${section.body}</p>`).join("")}</body></html>`;
+    const documentMarkup = `<!doctype html><html><head><meta charset="utf-8"><title>${data.finalTitle}</title></head><body><h1>${data.finalTitle}</h1><p>${data.finalVersion}</p>${data.finalSections.map((section) => `<h2>${section.title}</h2><p>${section.body}</p>`).join("")}<h2>${data.finalRolesTitle}</h2>${data.roles.map((role) => `<h3>${role.name}: ${role.status}</h3><p>${role.detail}</p>`).join("")}</body></html>`;
     return `data:application/msword;charset=utf-8,${encodeURIComponent(documentMarkup)}`;
   }
 

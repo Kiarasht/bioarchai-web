@@ -116,18 +116,18 @@ window.BIOARCHAI_CONTENT = {
     "bioarchaiExistsToImprovePrecisionMedicineAndDrugDevelopment": "BioArchai exists to improve precision medicine and drug development decisions by helping teams move from fragmented biological and clinical evidence to clearer, explainable, biomarker-driven strategy.",
     "readTheMission": "Read the mission",
     "builtByExpertsAcrossPrecisionMedicineGenomicsOncologyDiagnostics": "Built by experts across precision medicine, genomics, oncology, diagnostics, and AI product strategy.",
-    "theFirstVersionIncludesFounderAndAdvisorPlaceholdersSo": "The first version includes founder and advisor placeholders so BioArchai can add profiles as the team page is finalized.",
+    "theFirstVersionIncludesFounderAndAdvisorPlaceholdersSo": "Meet the multidisciplinary expertise guiding BioArchai across precision medicine, diagnostics, evidence strategy, and AI product development.",
     "viewTeam": "View team",
     "insights": "Insights",
     "latestThinkingFromBioarchai": "Latest Thinking from BioArchai",
     "visitNews": "Visit News",
     "perspective": "Perspective",
-    "aForthcomingPerspectiveOnConnectingMechanismClinicalContextAnd": "A forthcoming perspective on connecting mechanism, clinical context, and assay feasibility.",
+    "aForthcomingPerspectiveOnConnectingMechanismClinicalContextAnd": "A perspective on connecting mechanism, clinical context, assay feasibility, and evidence confidence in biomarker strategy.",
     "platformNote": "Platform Note",
     "aPracticalViewOfTraceabilityPrioritizationAndExpertReview": "A practical view of traceability, prioritization, and expert review in biomarker workflows.",
     "companyUpdate": "Company Update",
     "bioarchaiIsPreparingEarlyCollaborationPathwaysForQualifiedBiopharma": "BioArchai is preparing early collaboration pathways for qualified biopharma and diagnostic teams.",
-    "bioarchaiIsNotListingOpenRolesYetButThe": "BioArchai is not listing open roles yet, but the careers page is ready for future opportunities and relevant introductions.",
+    "bioarchaiIsNotListingOpenRolesYetButThe": "BioArchai is not listing open roles currently, but welcomes relevant introductions from people aligned with the mission.",
     "readyToExploreArchaiNexus": "Ready to explore Archai Nexus?",
     "startAStrategyDiscussionWithBioarchai": "Start a strategy discussion with BioArchai.",
     "evidenceAndDataFlowThroughArchaiNexusIntoDecision": "Evidence and data flow through Archai Nexus into decision-ready outputs",
@@ -266,7 +266,7 @@ window.BIOARCHAI_CONTENT = {
     "brandKicker": "Archai Nexus / Tx Archai",
     "workspaceTitle": "Decision Intelligence for Biomarker-Driven Drug Development",
     "workspaceLede": "Confidently define biomarker strategy from drug biology, indication, evidence, and trial context.",
-    "workflowStatus": "MVP active oncology biomarker strategy workflow",
+    "workflowStatus": "Active oncology biomarker strategy workflow",
     "openTxArchai": "Open Tx Archai",
     "viewPlatformSolutions": "View platform solutions",
     "projectQuestion": "What question is being analyzed?",
@@ -277,8 +277,8 @@ window.BIOARCHAI_CONTENT = {
     "workspacePanelAria": "Tx Archai workspace panel",
     "steps": [
       { "id": "routing", "short": "01", "label": "Nexus routing", "status": "Solution shell", "icon": "hub" },
-      { "id": "setup", "short": "02", "label": "Project setup", "status": "Required inputs", "icon": "assignment" },
-      { "id": "agents", "short": "03", "label": "Agent run", "status": "Six evidence agents", "icon": "account_tree" },
+      { "id": "setup", "short": "02", "label": "Project setup", "status": "Project context", "icon": "assignment" },
+      { "id": "agents", "short": "03", "label": "Agent run", "status": "Evidence agents", "icon": "account_tree" },
       { "id": "dashboard", "short": "04", "label": "Dashboard & report", "status": "Review workspace", "icon": "dashboard" },
       { "id": "graph", "short": "05", "label": "Evidence graph", "status": "Trace relationships", "icon": "share" },
       { "id": "scoring", "short": "06", "label": "Scoring criteria", "status": "Advanced settings", "icon": "tune" },
@@ -288,9 +288,9 @@ window.BIOARCHAI_CONTENT = {
       "active": "Active",
       "required": "Required",
       "optional": "Optional",
-      "mvpActive": "MVP active",
-      "visibleLater": "Visible / later workflow",
-      "comingLater": "Later workflow",
+      "mvpActive": "Available",
+      "visibleLater": "Available",
+      "comingLater": "Available",
       "continue": "Continue",
       "startAnalysis": "Start analysis",
       "viewReport": "View Report",
@@ -316,7 +316,7 @@ window.BIOARCHAI_CONTENT = {
       "downloadWord": "Download Word draft",
       "exportRelationships": "Export relationships",
       "addGraphSnapshot": "Add graph snapshot to report",
-      "allGood": "Required inputs are complete. Broad strategy mode is ready.",
+      "allGood": "Core project context is complete. Broad strategy mode is ready.",
       "missingRequired": "Drug name or drug class and indication are required before analysis.",
       "savedValid": "Configuration saved as a reusable scoring template.",
       "weightsNeed100": "Total weights must equal 100% before saving.",
@@ -367,26 +367,26 @@ window.BIOARCHAI_CONTENT = {
         {
           "id": "tx",
           "title": "Tx Archai",
-          "status": "MVP active",
+          "status": "Available",
           "description": "Biomarker strategy, assay strategy, and clinical trial planning for therapeutic teams.",
           "action": "Open Tx Archai"
         },
         {
           "id": "dx",
           "title": "Dx Archai",
-          "status": "Visible / later workflow",
+          "status": "Available",
           "description": "Diagnostics intelligence, assay strategy, testing-data harmonization, and pharma evidence packages.",
           "action": "Explore workflow"
         },
         {
           "id": "evidence",
           "title": "Evidence Archai",
-          "status": "Visible / later workflow",
+          "status": "Available",
           "description": "KOL briefs, scientific narratives, evidence-gap maps, RWE/HEOR plans, and payer evidence support.",
           "action": "Explore workflow"
         }
       ],
-      "workflowHeading": "MVP Tx Archai route",
+      "workflowHeading": "Tx Archai workflow",
       "workflow": [
         "Landing page",
         "Tx Archai entry",
@@ -401,13 +401,13 @@ window.BIOARCHAI_CONTENT = {
         "Decision intelligence workspace, not a generic chatbot.",
         "Evidence planning is merged into agent run status.",
         "Counts and extracted findings stay inside agent reports and downstream result tabs.",
-        "Unsupported MVP-2 roles stay visible but inactive until evidence requirements are met."
+        "Roles without sufficient supporting evidence stay visible but cannot drive high-confidence recommendations."
       ]
     },
     "setup": {
       "kicker": "Project setup",
-      "heading": "Structured required inputs, flexible optional context",
-      "lede": "Only drug name or drug class and indication are mandatory. Missing context should produce explicit assumptions rather than blocking the workflow.",
+      "heading": "Add Context",
+      "lede": "Start with a drug or drug class and indication, then add the development context that should shape the analysis.",
       "fields": [
         {
           "id": "drug",
@@ -424,6 +424,14 @@ window.BIOARCHAI_CONTENT = {
           "value": "Non-small cell lung cancer",
           "placeholder": "NSCLC; PDAC; CRC",
           "helper": "Accepts tumor type, disease area, or indication language with taxonomy normalization."
+        },
+        {
+          "id": "contextUse",
+          "label": "Biomarker Context of Use",
+          "required": false,
+          "value": "Patient selection",
+          "placeholder": "Patient selection; enrichment; stratification; monitoring",
+          "helper": "Captures how the biomarker is intended to support the development or clinical decision."
         },
         {
           "id": "line",
@@ -469,10 +477,10 @@ window.BIOARCHAI_CONTENT = {
       "assumptionsHeading": "Initial assumptions",
       "assumptions": [
         "Oncology biomarker strategy, not diagnostic launch planning.",
-        "Public and curated MVP-1 evidence sources only.",
+        "Public and curated evidence sources are used for the initial analysis.",
         "Broad NSCLC strategy unless line of therapy is narrowed.",
         "Assay, positivity criteria, and biomarker definition will be evaluated together.",
-        "Inactive MVP-2 biomarker roles can appear as evidence gaps, not high-confidence recommendations."
+        "Inactive biomarker roles can appear as evidence gaps, not high-confidence recommendations."
       ]
     },
     "agents": [
@@ -544,7 +552,7 @@ window.BIOARCHAI_CONTENT = {
         "role": "Mechanism/MOA alignment, biomarker role classification, response/resistance rationale, clinical evidence strength, and evidence gaps.",
         "resources": ["PubMed / PMC", "CIViC", "ClinGen / ClinVar where relevant", "Curated oncology knowledge sources where licensed"],
         "optionalResources": ["OncoKB licensed use", "COSMIC licensed use", "Proprietary translational datasets", "Perturbation data", "Partner/internal datasets"],
-        "reportItems": ["EGFR activating alterations have direct mechanism alignment for EGFR TKI benefit.", "Resistance markers should be active with caution unless trial or label supported.", "PD, MRD, and safety roles remain inactive by default in MVP-1."]
+        "reportItems": ["EGFR activating alterations have direct mechanism alignment for EGFR TKI benefit.", "Resistance markers should be active with caution unless trial or label supported.", "PD, MRD, and safety roles remain inactive until supporting evidence is available."]
       },
       {
         "id": "strategy",
@@ -577,7 +585,7 @@ window.BIOARCHAI_CONTENT = {
         { "id": "assay-definition", "label": "Assay, Positivity Criteria & Biomarker Definition" },
         { "id": "trial-design", "label": "Trial Design Implications" },
         { "id": "gaps", "label": "Assumptions & Evidence Gaps" },
-        { "id": "roles", "label": "Biomarker Role & MVP Status" },
+        { "id": "roles", "label": "Biomarker Role Status" },
         { "id": "scoring-tab", "label": "Scoring Criteria" },
         { "id": "final-report", "label": "Final Report" }
       ],
@@ -623,7 +631,7 @@ window.BIOARCHAI_CONTENT = {
         { "field": "Positivity Criteria", "meaning": "Variant detected / not detected rule for a qualifying EGFR alteration", "example": "Detected EGFR exon 19 deletion or L858R by validated assay." },
         { "field": "Measurement Rule", "meaning": "Variant call with assay-specific LoD and tumor-content limitations", "example": "Tissue NGS primary; plasma ctDNA backup with false-negative caution." },
         { "field": "Assay / Test Method", "meaning": "Tissue NGS, PCR, or plasma ctDNA depending on context", "example": "CDx/device precedent prioritized when available." },
-        { "field": "Clinical Use", "meaning": "Predictive and patient-selection roles active in MVP-1 when source supported", "example": "Resistance, stratification, and exploratory roles handled with status gating." }
+        { "field": "Clinical Use", "meaning": "Predictive and patient-selection roles are active when supported by source evidence", "example": "Resistance, stratification, and exploratory roles are handled with status gating." }
       ],
       "trialImplicationsHeading": "Trial design implications",
       "trialImplications": [
@@ -636,34 +644,34 @@ window.BIOARCHAI_CONTENT = {
         "Line of therapy is inferred and should be confirmed before final recommendation.",
         "Public prevalence data supports broad feasibility but not site-level enrollment planning.",
         "Plasma ctDNA backup needs assay-performance and LoD review before operational use.",
-        "Prognostic, PD, MRD, and safety roles need MVP-2 evidence layers or partner data.",
+        "Prognostic, PD, MRD, and safety roles need additional evidence layers or partner data.",
         "Human review is required before external use of any regulatory or CDx claim."
       ],
-      "rolesHeading": "Biomarker role ontology and MVP status"
+      "rolesHeading": "Biomarker role ontology and evidence status"
     },
     "roleTaxonomy": [
-      { "role": "Predictive", "definition": "Predicts likely benefit from a therapy or drug class.", "status": "Active in MVP-1", "basis": "Label, CDx/device, trial, curated source, or strong publication evidence." },
-      { "role": "Patient-selection", "definition": "Identifies the treatment-eligible or biomarker-defined population.", "status": "Active in MVP-1", "basis": "Explicit label, CDx, or trial eligibility evidence." },
-      { "role": "Enrichment", "definition": "Increases likelihood of response or signal detection in early or uncertain settings.", "status": "Active in MVP-1", "basis": "Trial eligibility, cohort design, or label precedent." },
+      { "role": "Predictive", "definition": "Predicts likely benefit from a therapy or drug class.", "status": "Active", "basis": "Label, CDx/device, trial, curated source, or strong publication evidence." },
+      { "role": "Patient-selection", "definition": "Identifies the treatment-eligible or biomarker-defined population.", "status": "Active", "basis": "Explicit label, CDx, or trial eligibility evidence." },
+      { "role": "Enrichment", "definition": "Increases likelihood of response or signal detection in early or uncertain settings.", "status": "Active", "basis": "Trial eligibility, cohort design, or label precedent." },
       { "role": "Stratification", "definition": "Balances or analyzes subgroups without necessarily selecting treatment.", "status": "Active with caution", "basis": "Trial text or study design must explicitly support stratification." },
       { "role": "Resistance", "definition": "Explains primary or acquired resistance or negative-selection context.", "status": "Active with caution", "basis": "Label, trial, or curated evidence supports the resistance claim." },
-      { "role": "Diagnostic / disease classification", "definition": "Defines disease entity, subtype, or diagnostic category.", "status": "Limited MVP-1 support", "basis": "Active when label or trial linked; broader classification is MVP-2." },
-      { "role": "Prognostic", "definition": "Associated with outcome independent of treatment.", "status": "Gray / inactive for MVP-1", "basis": "Needs curated prognostic evidence, survival analysis, or longitudinal outcome data." },
-      { "role": "Pharmacodynamic / target engagement", "definition": "Shows drug effect, target modulation, pathway engagement, or on-treatment biological change.", "status": "Gray / inactive for MVP-1", "basis": "Needs paired pre/post-treatment data, perturbation data, publications, or internal translational data." },
-      { "role": "Monitoring / MRD / response", "definition": "Tracks disease burden, molecular response, recurrence risk, or minimal residual disease.", "status": "Gray / inactive for MVP-1", "basis": "Needs longitudinal data and assay-performance validation." },
-      { "role": "Safety / toxicity", "definition": "Predicts treatment-related risk, contraindication, or adverse-event susceptibility.", "status": "Gray / inactive for MVP-1", "basis": "Active only when explicit label-supported; broader safety intelligence is MVP-2." },
-      { "role": "Exploratory", "definition": "Hypothesis-generating biomarker with insufficient evidence for definitive selection.", "status": "Visible in MVP-1", "basis": "Cannot drive selection-enabling recommendations unless upgraded by stronger evidence." },
-      { "role": "Assay / biomarker definition", "definition": "Defines how positivity, high/low status, eligibility, or detected/not-detected status is measured.", "status": "Active in MVP-1", "basis": "Active for label, CDx, or trial-linked definitions." }
+      { "role": "Diagnostic / disease classification", "definition": "Defines disease entity, subtype, or diagnostic category.", "status": "Limited support", "basis": "Active when label or trial linked; broader classification requires additional evidence." },
+      { "role": "Prognostic", "definition": "Associated with outcome independent of treatment.", "status": "Inactive pending evidence", "basis": "Needs curated prognostic evidence, survival analysis, or longitudinal outcome data." },
+      { "role": "Pharmacodynamic / target engagement", "definition": "Shows drug effect, target modulation, pathway engagement, or on-treatment biological change.", "status": "Inactive pending evidence", "basis": "Needs paired pre/post-treatment data, perturbation data, publications, or internal translational data." },
+      { "role": "Monitoring / MRD / response", "definition": "Tracks disease burden, molecular response, recurrence risk, or minimal residual disease.", "status": "Inactive pending evidence", "basis": "Needs longitudinal data and assay-performance validation." },
+      { "role": "Safety / toxicity", "definition": "Predicts treatment-related risk, contraindication, or adverse-event susceptibility.", "status": "Inactive pending evidence", "basis": "Active only when explicitly label-supported; broader safety intelligence requires additional evidence." },
+      { "role": "Exploratory", "definition": "Hypothesis-generating biomarker with insufficient evidence for definitive selection.", "status": "Visible for review", "basis": "Cannot drive selection-enabling recommendations unless upgraded by stronger evidence." },
+      { "role": "Assay / biomarker definition", "definition": "Defines how positivity, high/low status, eligibility, or detected/not-detected status is measured.", "status": "Active", "basis": "Active for label, CDx, or trial-linked definitions." }
     ],
     "graph": {
       "kicker": "Evidence graph",
       "heading": "Trace recommendation logic through nodes, edges, and source evidence",
       "lede": "Click a node or relationship to inspect the extracted claim, source document, confidence, date/version, role status, and activation requirements.",
-      "filters": ["Evidence type", "Confidence", "Clinical phase", "Source type", "MVP role status", "Human review state"],
+      "filters": ["Evidence type", "Confidence", "Clinical phase", "Source type", "Biomarker role status", "Human review state"],
       "nodes": [
         { "id": "drug", "type": "Drug class", "label": "EGFR TKI", "meta": "Therapeutic class", "confidence": "High", "status": "Active", "detail": "Drug class anchors the biomarker strategy and MOA alignment review.", "source": "Project setup and label/trial evidence" },
         { "id": "indication", "type": "Indication", "label": "NSCLC", "meta": "Oncology indication", "confidence": "High", "status": "Active", "detail": "Indication determines denominator, trial context, and assay strategy.", "source": "Project setup and normalized oncology taxonomy" },
-        { "id": "biomarker", "type": "Biomarker", "label": "EGFR exon 19 del / L858R", "meta": "Predictive and patient-selection", "confidence": "High", "status": "MVP-1 active", "detail": "Biomarker supports selected strategy when label, trial, clinical evidence, and assay gates pass.", "source": "Label, trial, biology, and assay evidence" },
+        { "id": "biomarker", "type": "Biomarker", "label": "EGFR exon 19 del / L858R", "meta": "Predictive and patient-selection", "confidence": "High", "status": "Active", "detail": "Biomarker supports selected strategy when label, trial, clinical evidence, and assay gates pass.", "source": "Label, trial, biology, and assay evidence" },
         { "id": "assay", "type": "Assay criteria", "label": "Tissue NGS / plasma ctDNA", "meta": "Detected / not detected rule", "confidence": "Medium", "status": "Active with limitations", "detail": "Assay node stores biomarker definition, positivity criteria, measurement rule, specimen, source, and limitations.", "source": "CDx/device documents, IFUs, and trial assay requirements" },
         { "id": "trial", "type": "Trial", "label": "Selected NSCLC cohort", "meta": "Phase II signal-seeking", "confidence": "Medium-high", "status": "Active", "detail": "Trial design node links eligibility logic to prevalence and assay feasibility.", "source": "ClinicalTrials.gov and precedent review" },
         { "id": "evidence", "type": "Evidence object", "label": "FDA label + trial eligibility", "meta": "Accepted evidence card", "confidence": "High", "status": "Human review required", "detail": "Evidence object links extracted claims, citations, date/version, and review status back to recommendations.", "source": "Accepted evidence cards" }
@@ -708,7 +716,7 @@ window.BIOARCHAI_CONTENT = {
         { "id": "clinical", "label": "Clinical evidence gate", "defaultRule": "If clinical evidence score < 3, do not recommend patient selection.", "customizable": "Adjust by phase; Phase I can be more permissive than Phase III." },
         { "id": "label", "label": "Label/CDx gate", "defaultRule": "For Phase III, low label precedent plus low assay readiness triggers regulatory/CDx risk flag.", "customizable": "Define hard block or warning depending on company strategy." },
         { "id": "ambiguous", "label": "Ambiguous input gate", "defaultRule": "If user provides only drug class and cancer type, output broad strategy with assumptions.", "customizable": "Choose broad mode, focused mode, or require clarification before run." },
-        { "id": "role", "label": "Biomarker role-status gate", "defaultRule": "Gray/inactive roles cannot drive high-confidence MVP-1 recommendations.", "customizable": "Admin override requires rationale, audit entry, and activation evidence." }
+        { "id": "role", "label": "Biomarker role-status gate", "defaultRule": "Inactive roles cannot drive high-confidence recommendations.", "customizable": "Admin override requires rationale, audit entry, and activation evidence." }
       ],
       "thresholds": [
         { "id": "selected", "label": "Selected", "value": 85 },
@@ -718,7 +726,7 @@ window.BIOARCHAI_CONTENT = {
       ],
       "accessLevels": ["Viewer", "Reviewer", "Editor", "Admin"],
       "auditEntries": [
-        "archai_default_v1 created by BioArchai system baseline.",
+        "archai_default created by BioArchai system baseline.",
         "Phase II signal-seeking preset configured for the EGFR TKI / NSCLC project.",
         "No custom template saved yet."
       ]
@@ -730,14 +738,14 @@ window.BIOARCHAI_CONTENT = {
       "sections": [
         { "title": "Executive recommendation", "content": "EGFR activating mutation strategy is recommended as a selected biomarker approach when assay readiness and clinical evidence gates pass. Confidence remains dependent on line-of-therapy confirmation." },
         { "title": "Primary and secondary biomarkers", "content": "Primary: EGFR exon 19 deletion and L858R as predictive and patient-selection biomarkers. Secondary: resistance markers and ctDNA dynamics remain gated by evidence status." },
-        { "title": "Clinical trial strategy", "content": "Phase II selected cohort is supportable; Phase III requires stronger assay readiness, prevalence feasibility, and regulatory/CDx review. Exploratory roles are visible but cannot drive MVP-1 high-confidence selection." },
+        { "title": "Clinical trial strategy", "content": "Phase II selected cohort is supportable; Phase III requires stronger assay readiness, prevalence feasibility, and regulatory/CDx review. Exploratory roles are visible but cannot drive high-confidence selection." },
         { "title": "Assay, Positivity Criteria & Biomarker Definition", "content": "Use detected/not detected EGFR sensitizing alteration rule with tissue NGS primary and plasma ctDNA backup when tissue is unavailable. LoD and tumor-content limitations remain explicit." },
         { "title": "Prevalence and feasibility", "content": "Public cohort and SEER context support broad feasibility, but partner testing data is needed for site-level enrollment planning." },
-        { "title": "Evidence gaps", "content": "Confirm line of therapy, assay operational path, plasma ctDNA limitations, and MVP-2 evidence for prognostic, PD, MRD, and safety roles." },
+        { "title": "Evidence gaps", "content": "Confirm line of therapy, assay operational path, plasma ctDNA limitations, and additional evidence for prognostic, PD, MRD, and safety roles." },
         { "title": "Appendix", "content": "Includes evidence cards, source links, six agent mini-reports, graph relationships, scoring configuration, and audit trail." }
       ],
       "metadata": [
-        { "label": "Scoring configuration", "value": "archai_default_v1" },
+        { "label": "Scoring configuration", "value": "archai_default" },
         { "label": "Output types", "value": "PDF and Word" },
         { "label": "Human review state", "value": "Required before external use" },
         { "label": "Evidence plan", "value": "Merged into Evidence Plan & Agent Run" }
@@ -775,28 +783,28 @@ window.BIOARCHAI_CONTENT = {
   "team": {
     "teamBioarchai": "Team | BioArchai",
     "expertiseAcrossPrecisionMedicineGenomicsOncologyDiagnosticsAndAi": "Expertise across precision medicine, genomics, oncology, diagnostics, and AI product strategy.",
-    "thisPageIsStructuredForFounderAdvisorAndTeam": "This page is structured for founder, advisor, and team profiles as BioArchai finalizes public bios.",
+    "thisPageIsStructuredForFounderAdvisorAndTeam": "BioArchai brings scientific, clinical, diagnostic, evidence, and product expertise together around high-stakes biomarker decisions.",
     "credibilityFirst": "Credibility first",
     "designedToSupportExecutiveTranslationalScienceDiagnosticAndInvestor": "Designed to support executive, translational science, diagnostic, and investor audiences.",
-    "founderProfile": "Founder Profile",
-    "founder": "Founder",
-    "founderBioPlaceholderForPrecisionMedicineBiomarkerStrategyTranslational": "Founder bio placeholder for precision medicine, biomarker strategy, translational science, diagnostics, and AI product leadership. Replace with a finalized public profile when approved.",
+    "founderProfile": "Leadership",
+    "founder": "BioArchai Leadership",
+    "founderBioPlaceholderForPrecisionMedicineBiomarkerStrategyTranslational": "BioArchai leadership connects precision medicine, biomarker strategy, translational science, diagnostics, and AI product development into one decision-intelligence platform.",
     "precisionMedicine": "Precision Medicine",
     "aiProduct": "AI Product",
-    "advisorPlaceholder": "Advisor Placeholder",
-    "scientificAdvisor": "Scientific Advisor",
-    "advisorProfilePlaceholderForGenomicsOncologyTranslationalBiologyAnd": "Advisor profile placeholder for genomics, oncology, translational biology, and disease-specific biomarker expertise.",
+    "advisorPlaceholder": "Advisory Network",
+    "scientificAdvisor": "Scientific & Translational Expertise",
+    "advisorProfilePlaceholderForGenomicsOncologyTranslationalBiologyAnd": "Scientific guidance spans genomics, oncology, translational biology, clinical development, and disease-specific biomarker strategy.",
     "genomics": "Genomics",
     "oncology": "Oncology",
     "translationalBiology": "Translational Biology",
-    "evidenceAdvisor": "Evidence Advisor",
-    "advisorProfilePlaceholderForMedicalAffairsHeorRweClinical": "Advisor profile placeholder for Medical Affairs, HEOR, RWE, clinical utility, payer value, and evidence generation.",
+    "evidenceAdvisor": "Evidence Strategy Expertise",
+    "advisorProfilePlaceholderForMedicalAffairsHeorRweClinical": "Evidence strategy guidance spans Medical Affairs, HEOR, real-world evidence, clinical utility, testing access, and value evidence.",
     "heor": "HEOR",
     "rwe": "RWE",
     "evidenceStrategy": "Evidence Strategy",
     "advisoryNetwork": "Advisory Network",
-    "bioarchaiIsDesignedForCollaborationWithExpertsAndEarly": "BioArchai is designed for collaboration with experts and early design partners.",
-    "useThisPageToAddAdvisorProfilesInstitutionalExpertise": "Use this page to add advisor profiles, institutional expertise, and partner-facing credibility as they become public.",
+    "bioarchaiIsDesignedForCollaborationWithExpertsAndEarly": "BioArchai is designed for collaboration with scientific experts and strategic partners.",
+    "useThisPageToAddAdvisorProfilesInstitutionalExpertise": "The advisory network helps ensure that product workflows reflect the evidence standards, operational constraints, and expert judgment required in precision medicine.",
     "discussPartnership": "Discuss Partnership",
     "bioarchaiIsBuiltByExpertsAcrossPrecisionMedicineGenomics": "BioArchai is built by experts across precision medicine, genomics, oncology, diagnostics, and AI product strategy."
   },
@@ -805,13 +813,16 @@ window.BIOARCHAI_CONTENT = {
     "newsBlog": "News & Blog",
     "latestThinkingFromBioarchai": "Latest thinking from BioArchai.",
     "thoughtLeadershipAndCompanyUpdatesForBiomarkerStrategyAi": "Thought leadership and company updates for biomarker strategy, AI-enabled precision medicine, diagnostic planning, and evidence generation.",
-    "value3StarterArticles": "3 starter articles",
-    "readyToUpdatePlaceholdersForEarlyPerspectivePiecesAnd": "Ready-to-update placeholders for early perspective pieces and company announcements.",
-    "aForthcomingPerspectiveOnWhyMechanismClinicalContextAssay": "A forthcoming perspective on why mechanism, clinical context, assay feasibility, and evidence confidence need to be considered together.",
+    "value3StarterArticles": "Perspectives & updates",
+    "readyToUpdatePlaceholdersForEarlyPerspectivePiecesAnd": "Ideas and company updates on traceable biomarker strategy, evidence integration, and expert-led decision intelligence.",
+    "perspectiveLabel": "Perspective",
+    "platformNoteLabel": "Platform Note",
+    "companyUpdateLabel": "Company Update",
+    "aForthcomingPerspectiveOnWhyMechanismClinicalContextAssay": "Why mechanism, clinical context, assay feasibility, and evidence confidence need to be evaluated together when defining biomarker strategy.",
     "discussThisTopic": "Discuss this topic",
     "aPlatformNoteOnTraceableSynthesisConfigurableScoringAnd": "A platform note on traceable synthesis, configurable scoring, and expert review for high-stakes biomarker workflows.",
     "explorePlatform": "Explore platform",
-    "anUpcomingCompanyUpdateForQualifiedBiopharmaDiagnosticMedical": "An upcoming company update for qualified biopharma, diagnostic, Medical Affairs, HEOR, and evidence-generation teams.",
+    "anUpcomingCompanyUpdateForQualifiedBiopharmaDiagnosticMedical": "BioArchai is engaging qualified biopharma, diagnostic, Medical Affairs, HEOR, and evidence-generation teams around focused design partnerships.",
     "requestADiscussion": "Request a discussion",
     "bioarchaiThoughtLeadershipAndCompanyUpdates": "BioArchai thought leadership and company updates."
   },
@@ -894,6 +905,7 @@ window.BIOARCHAI_CONTENT.v2 = {
     "navSolutions": "Solutions",
     "navWorkflow": "How it works",
     "navPrinciples": "Product principles",
+    "navCompany": "Company",
     "signIn": "Sign in",
     "launchWorkspace": "Launch workspace",
     "requestDemo": "Request a demo",
@@ -1001,16 +1013,43 @@ window.BIOARCHAI_CONTENT.v2 = {
       {"icon": "tune", "title": "Controlled flexibility", "description": "Authorized users can adjust scoring while the default framework and every change remain auditable."},
       {"icon": "groups", "title": "Human review", "description": "Evidence can be accepted, excluded, commented on, and promoted into a final report by the project team."}
     ],
-    "ctaEyebrow": "Tx Archai",
-    "ctaTitle": "See the complete Tx Archai workflow.",
-    "ctaLede": "Enter the workspace to create a project, run evidence agents, review reports, and work with Archai Copilot.",
+    "companyEyebrow": "Company",
+    "companyTitle": "Multidisciplinary expertise for high-stakes biomarker decisions.",
+    "companyLede": "BioArchai brings scientific, clinical, diagnostic, evidence, and product expertise together around a shared commitment to traceable decision intelligence.",
+    "teamEyebrow": "Team",
+    "teamTitle": "Built across science, evidence, and product strategy.",
+    "teamLede": "The BioArchai team and advisory network connect precision medicine expertise with the practical realities of clinical development and evidence generation.",
+    "teamAreas": [
+      {"icon": "strategy", "label": "Leadership", "title": "Precision medicine & product strategy", "description": "Connecting biomarker strategy, translational science, diagnostics, and AI product development into one decision platform."},
+      {"icon": "science", "label": "Scientific expertise", "title": "Genomics & translational medicine", "description": "Grounding recommendations in disease biology, mechanism, clinical evidence, and biomarker context of use."},
+      {"icon": "query_stats", "label": "Evidence expertise", "title": "Medical affairs, HEOR & RWE", "description": "Shaping evidence strategies that address clinical utility, testing access, value communication, and lifecycle decisions."}
+    ],
+    "newsEyebrow": "News & Perspectives",
+    "newsTitle": "Current thinking from BioArchai.",
+    "newsLede": "Perspectives on biomarker strategy, traceable evidence integration, and the development of expert-led decision intelligence.",
+    "newsItems": [
+      {"type": "Perspective", "title": "Why biomarker strategy needs disease-specific intelligence", "description": "Mechanism, clinical context, assay feasibility, and evidence confidence need to be evaluated together when defining a biomarker strategy.", "action": "Discuss this topic", "href": "../demo.html"},
+      {"type": "Platform Note", "title": "From evidence fragments to decision-ready outputs", "description": "A practical view of traceable synthesis, controlled scoring, and expert review for high-stakes biomarker workflows.", "action": "See how it works", "href": "#workflow"},
+      {"type": "Company Update", "title": "Design partner opportunities for Archai Nexus", "description": "BioArchai is engaging qualified biopharma, diagnostic, Medical Affairs, HEOR, and evidence-generation teams around focused design partnerships.", "action": "Request a discussion", "href": "../demo.html"}
+    ],
+    "careersEyebrow": "Careers",
+    "careersTitle": "Help build the future of precision medicine intelligence.",
+    "careersLede": "BioArchai is building toward a multidisciplinary team spanning biomarker strategy, translational science, evidence generation, AI product, and engineering.",
+    "careersStatus": "No open roles currently",
+    "careersAreasTitle": "Future areas of focus",
+    "careersAreas": ["Precision medicine & translational science", "AI product & engineering", "Evidence generation & value strategy"],
+    "careersAction": "Introduce yourself",
+    "careersHref": "mailto:nastaran.hida@gmail.com?subject=BioArchai%20careers%20interest",
+    "ctaEyebrow": "Request a Demo",
+    "ctaTitle": "Bring your biomarker strategy question to BioArchai.",
+    "ctaLede": "See how Archai Nexus can organize evidence, run specialized agents, and produce a traceable biomarker strategy and clinical trial design recommendation.",
     "footerProduct": "Product",
     "footerCompany": "Company",
     "footerLinks": ["Tx Archai", "Dx Archai", "Evidence Archai"],
     "footerCompanyLinks": [
-      {"label": "Team", "href": "../team.html"},
-      {"label": "News", "href": "../news.html"},
-      {"label": "Careers", "href": "../careers.html"}
+      {"label": "Team", "href": "#team"},
+      {"label": "News", "href": "#news"},
+      {"label": "Careers", "href": "#careers"}
     ]
   },
   "login": {
@@ -1096,9 +1135,24 @@ window.BIOARCHAI_CONTENT.v2 = {
       "previousReportsTitle": "Previous project reports",
       "previousReportsLede": "Open completed reports, revisit an active project, or download a prior deliverable.",
       "previousReports": [
-        {"code": "TX-2407-014", "name": "KRAS G12C Strategy - NSCLC", "detail": "Biomarker strategy and Phase II trial design", "status": "Complete", "updated": "July 28, 2026", "file": "BioArchai_KRAS_G12C_NSCLC_Report.doc"},
-        {"code": "TX-2406-009", "name": "HER2-Low Strategy - Breast Cancer", "detail": "Enrichment and assay strategy", "status": "Complete", "updated": "July 11, 2026", "file": "BioArchai_HER2_Low_Report.doc"},
-        {"code": "TX-2405-021", "name": "ctDNA Monitoring - Colorectal Cancer", "detail": "Exploratory monitoring context of use", "status": "Requires attention", "updated": "June 30, 2026", "file": "BioArchai_ctDNA_CRC_Report.doc"}
+        {"code": "TX-2407-014", "name": "KRAS G12C Strategy - NSCLC", "detail": "Biomarker strategy and Phase II trial design", "status": "Complete", "updated": "July 28, 2026", "file": "BioArchai_KRAS_G12C_NSCLC_Report.doc", "sections": [
+          {"title": "Executive recommendation", "body": "Use a KRAS G12C-selected Phase II strategy with prior-treatment context captured explicitly and resistance hypotheses retained as exploratory objectives."},
+          {"title": "Clinical trial strategy", "body": "Enroll a molecularly selected NSCLC cohort, stratify by prior KRAS G12C inhibitor exposure, and prespecify central nervous system and co-mutation analyses."},
+          {"title": "Assay strategy", "body": "Use validated tissue NGS as the primary eligibility route with a qualified plasma pathway when tissue is unavailable."},
+          {"title": "Review conclusion", "body": "The evidence review was completed with all high-priority assumptions resolved and the report approved for internal strategy use."}
+        ]},
+        {"code": "TX-2406-009", "name": "HER2-Low Strategy - Breast Cancer", "detail": "Enrichment and assay strategy", "status": "Complete", "updated": "July 11, 2026", "file": "BioArchai_HER2_Low_Report.doc", "sections": [
+          {"title": "Executive recommendation", "body": "Use an enrichment strategy that separates HER2-low and HER2-ultralow populations while preserving assay-specific uncertainty in the interpretation."},
+          {"title": "Clinical trial strategy", "body": "Apply prespecified expression strata and central testing to support consistent enrollment and interpretable subgroup analyses."},
+          {"title": "Assay strategy", "body": "Document specimen handling, reader variability, and the selected immunohistochemistry workflow before locking eligibility criteria."},
+          {"title": "Review conclusion", "body": "The project was completed with the assay-readiness conditions and subgroup analysis plan incorporated into the final recommendation."}
+        ]},
+        {"code": "TX-2405-021", "name": "ctDNA Monitoring - Colorectal Cancer", "detail": "Exploratory monitoring context of use", "status": "Requires attention", "updated": "June 30, 2026", "file": "BioArchai_ctDNA_CRC_Report.doc", "sections": [
+          {"title": "Executive recommendation", "body": "Retain ctDNA monitoring as an exploratory context of use until longitudinal performance and intervention thresholds are better supported."},
+          {"title": "Clinical study strategy", "body": "Collect prespecified longitudinal samples and relate molecular response patterns to imaging, recurrence, and treatment-change decisions."},
+          {"title": "Assay strategy", "body": "Resolve limit-of-detection assumptions, low-shedding disease limitations, and sample-timing rules before operational use."},
+          {"title": "Items requiring attention", "body": "Analytical validation evidence and the actionability threshold remain open and require expert review before report approval."}
+        ]}
       ],
       "openReport": "Open report",
       "revisitProject": "Revisit project",
@@ -1253,6 +1307,7 @@ window.BIOARCHAI_CONTENT.v2 = {
       "exportPdf": "Export PDF",
       "exportWord": "Export Word",
       "wordFilename": "BioArchai_Tx_Archai_Report.doc",
+      "previousReportExportTitle": "Download this report",
       "generateReport": "Generate final report",
       "generatedMessage": "Final report generated with the current decision configuration and selected evidence.",
       "commentAction": "Add comment",

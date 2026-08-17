@@ -449,17 +449,13 @@ const setupTxArchaiWorkspace = () => {
           required: field.required
         }
       });
-      const badge = createElement("span", {
-        className: field.required ? "tx-required" : "tx-optional",
-        text: field.required ? tx.ui.required : tx.ui.optional
-      });
       grid.append(
         createElement("div", {
           className: "field",
           children: [
             createElement("label", {
               attrs: { for: inputId },
-              children: [createElement("span", { text: field.label }), badge]
+              children: [createElement("span", { text: field.label })]
             }),
             input,
             createElement("p", { className: "form-note", text: field.helper })

@@ -92,6 +92,7 @@
             <a href="#solutions">${common.navSolutions}</a>
             <a href="#workflow">${common.navWorkflow}</a>
             <a href="#principles">${common.navPrinciples}</a>
+            <a href="#company">${common.navCompany}</a>
           </nav>
           <div class="marketing-actions">
             <a class="button button-ghost" href="login.html">${common.signIn}</a>
@@ -185,10 +186,73 @@
           </div>
         </section>
 
+        <section class="marketing-section company-intro-section" id="company">
+          <div class="marketing-container company-intro reveal">
+            <p class="section-kicker">${landing.companyEyebrow}</p>
+            <h2>${landing.companyTitle}</h2>
+            <p>${landing.companyLede}</p>
+            <nav class="company-section-nav" aria-label="${landing.companyEyebrow}">
+              <a href="#team">${landing.teamEyebrow}${icon("south_east")}</a>
+              <a href="#news">${landing.newsEyebrow}${icon("south_east")}</a>
+              <a href="#careers">${landing.careersEyebrow}${icon("south_east")}</a>
+            </nav>
+          </div>
+        </section>
+
+        <section class="marketing-section company-team-section" id="team">
+          <div class="marketing-container">
+            <div class="split-intro reveal">
+              <div><p class="section-kicker">${landing.teamEyebrow}</p><h2>${landing.teamTitle}</h2></div>
+              <p>${landing.teamLede}</p>
+            </div>
+            <div class="team-expertise-list">
+              ${landing.teamAreas.map((area, index) => `<article class="team-expertise-row reveal">
+                <span class="company-row-index">${String(index + 1).padStart(2, "0")}</span>
+                <span class="company-row-icon">${icon(area.icon)}</span>
+                <div><small>${area.label}</small><h3>${area.title}</h3></div>
+                <p>${area.description}</p>
+              </article>`).join("")}
+            </div>
+          </div>
+        </section>
+
+        <section class="marketing-section company-news-section" id="news">
+          <div class="marketing-container">
+            <div class="split-intro reveal">
+              <div><p class="section-kicker">${landing.newsEyebrow}</p><h2>${landing.newsTitle}</h2></div>
+              <p>${landing.newsLede}</p>
+            </div>
+            <div class="company-news-list">
+              ${landing.newsItems.map((item, index) => `<article class="company-news-row reveal">
+                <span class="company-row-index">${String(index + 1).padStart(2, "0")}</span>
+                <div><small>${item.type}</small><h3>${item.title}</h3></div>
+                <p>${item.description}</p>
+                <a href="${item.href}">${item.action}${icon("arrow_forward")}</a>
+              </article>`).join("")}
+            </div>
+          </div>
+        </section>
+
+        <section class="marketing-section company-careers-section" id="careers">
+          <div class="marketing-container careers-layout">
+            <div class="careers-copy reveal">
+              <p class="section-kicker">${landing.careersEyebrow}</p>
+              <h2>${landing.careersTitle}</h2>
+              <p>${landing.careersLede}</p>
+              <a class="button button-primary button-large" href="${landing.careersHref}">${buttonContent(landing.careersAction, "arrow_forward")}</a>
+            </div>
+            <div class="careers-focus reveal">
+              <strong><i></i>${landing.careersStatus}</strong>
+              <span>${landing.careersAreasTitle}</span>
+              <ol>${landing.careersAreas.map((area, index) => `<li><b>${String(index + 1).padStart(2, "0")}</b><span>${area}</span></li>`).join("")}</ol>
+            </div>
+          </div>
+        </section>
+
         <section class="marketing-cta">
           <div class="marketing-container cta-layout reveal">
             <div><p class="section-kicker">${landing.ctaEyebrow}</p><h2>${landing.ctaTitle}</h2><p>${landing.ctaLede}</p></div>
-            <a class="button button-primary button-large" href="${solutionUrl("tx")}">${buttonContent(common.launchWorkspace, "arrow_forward")}</a>
+            <a class="button button-primary button-large" href="../demo.html">${buttonContent(common.requestDemo, "arrow_forward")}</a>
           </div>
         </section>
       </main>
@@ -196,8 +260,8 @@
       <footer class="marketing-footer">
         <div class="marketing-container footer-layout">
           <div>${brand("./", true)}<p>${common.copyright}</p></div>
-          <div class="footer-link-group"><strong>${landing.footerProduct}</strong>${landing.footerLinks.map((link) => `<a href="login.html">${link}</a>`).join("")}</div>
-          <div class="footer-link-group"><strong>${landing.footerCompany}</strong>${landing.footerCompanyLinks.map((link) => `<a href="${link.href}">${link.label}</a>`).join("")}<a class="footer-demo-link" href="../demo.html">${buttonContent(common.requestDemo, "arrow_forward")}</a></div>
+          <div class="footer-link-group"><strong>${landing.footerProduct}</strong>${landing.footerLinks.map((link) => `<a href="login.html">${link}</a>`).join("")}<a class="footer-demo-link" href="../demo.html">${buttonContent(common.requestDemo, "arrow_forward")}</a></div>
+          <div class="footer-link-group"><strong>${landing.footerCompany}</strong>${landing.footerCompanyLinks.map((link) => `<a href="${link.href}">${link.label}</a>`).join("")}</div>
         </div>
       </footer>`;
 
@@ -397,6 +461,7 @@
   const appState = {
     activeView: "overview",
     activeReport: "biomarker-strategy",
+    previousReport: null,
     acceptedCards: new Set(workspace.evidence.cards.filter((card) => card.accepted).map((card) => card.id)),
     includedReports: new Set(workspace.evidence.tabs.filter((tab) => !["final", "scoring"].includes(tab.id)).map((tab) => tab.id)),
     agentStatuses: Object.fromEntries(workspace.agents.items.map((agent) => [agent.id, agent.status])),
@@ -511,7 +576,7 @@
         <div class="previous-report-list">${data.previousReports.map((report) => `<article>
           <div class="previous-report-main"><span>${report.code}</span><h3>${report.name}</h3><p>${report.detail}</p></div>
           <div class="previous-report-state"><strong>${report.status}</strong><span>${report.updated}</span></div>
-          <div class="previous-report-actions"><button class="button button-quiet" type="button" data-open-previous-report>${buttonContent(report.status === common.complete ? data.openReport : data.revisitProject, "arrow_forward")}</button><a class="icon-button" href="${buildPreviousReportHref(report)}" download="${report.file}" data-download-previous-report aria-label="${data.downloadAria}" title="${data.downloadReport}">${icon("download")}</a></div>
+          <div class="previous-report-actions"><button class="button button-quiet" type="button" data-open-previous-report="${report.code}">${buttonContent(report.status === common.complete ? data.openReport : data.revisitProject, "arrow_forward")}</button><a class="icon-button" href="${buildPreviousReportHref(report)}" download="${report.file}" data-download-previous-report aria-label="${data.downloadAria}" title="${data.downloadReport}">${icon("download")}</a></div>
         </article>`).join("")}</div>
       </section>
       <div class="overview-columns">
@@ -522,7 +587,8 @@
 
   function buildPreviousReportHref(report) {
     const data = workspace.overview;
-    const documentMarkup = `<!doctype html><html><head><meta charset="utf-8"><title>${report.name}</title></head><body><h1>${report.name}</h1><p>${report.detail}</p><h2>${data.previousReportStatusLabel}</h2><p>${report.status}</p><h2>${data.previousReportUpdatedLabel}</h2><p>${report.updated}</p></body></html>`;
+    const sections = report.sections.map((section) => `<h2>${section.title}</h2><p>${section.body}</p>`).join("");
+    const documentMarkup = `<!doctype html><html><head><meta charset="utf-8"><title>${report.name}</title></head><body><h1>${report.name}</h1><p>${report.detail}</p><h2>${data.previousReportStatusLabel}</h2><p>${report.status}</p><h2>${data.previousReportUpdatedLabel}</h2><p>${report.updated}</p>${sections}</body></html>`;
     return `data:application/msword;charset=utf-8,${encodeURIComponent(documentMarkup)}`;
   }
 
@@ -611,10 +677,16 @@
 
   const renderFinalReportPanel = () => {
     const data = workspace.evidence;
+    const previousReport = appState.previousReport;
+    const reportTitle = previousReport?.name || data.finalTitle;
+    const reportEyebrow = previousReport ? `${previousReport.code} | ${previousReport.updated}` : data.finalVersion;
+    const reportStatus = previousReport?.status || data.finalStatus;
+    const reportSections = previousReport?.sections || data.finalSections;
+    const reportRoles = previousReport ? "" : `<section class="final-role-section"><span>${String(reportSections.length + 1).padStart(2, "0")}</span><div><h3>${data.finalRolesTitle}</h3><div class="final-role-list">${data.roles.map((role) => `<article class="${role.status === common.inactive ? "is-inactive" : ""}"><div><strong>${role.name}</strong><span>${role.status}</span></div><p>${role.detail}</p></article>`).join("")}</div></div></section>`;
     return `
       <section class="final-report-panel">
-        <div class="final-report-toolbar"><div><p class="workspace-eyebrow">${data.finalVersion}</p><h2>${data.finalTitle}</h2><span class="draft-badge">${data.finalStatus}</span></div><div><button class="button button-secondary" type="button" data-comment-report>${buttonContent(data.commentAction, "add_comment")}</button><button class="button button-secondary" type="button" data-share-report>${buttonContent(data.shareAction, "ios_share")}</button></div></div>
-        <div class="final-report-layout"><article class="report-document">${data.finalSections.map((section, index) => `<section><span>${String(index + 1).padStart(2, "0")}</span><div><h3>${section.title}</h3><p>${section.body}</p></div></section>`).join("")}<section class="final-role-section"><span>${String(data.finalSections.length + 1).padStart(2, "0")}</span><div><h3>${data.finalRolesTitle}</h3><div class="final-role-list">${data.roles.map((role) => `<article class="${role.status === common.inactive ? "is-inactive" : ""}"><div><strong>${role.name}</strong><span>${role.status}</span></div><p>${role.detail}</p></article>`).join("")}</div></div></section></article><aside class="export-panel"><span class="panel-icon">${icon("description")}</span><h3>${data.generateReport}</h3><p>${common.demoDisclaimer}</p><button class="button button-primary button-full" type="button" data-export-pdf>${buttonContent(data.exportPdf, "picture_as_pdf")}</button><a class="button button-secondary button-full" href="${buildWordReportHref()}" download="${data.wordFilename}" data-export-word>${buttonContent(data.exportWord, "download")}</a><p class="generated-status" data-generated-status hidden>${data.generatedMessage}</p></aside></div>
+        <div class="final-report-toolbar"><div><p class="workspace-eyebrow">${reportEyebrow}</p><h2>${reportTitle}</h2><span class="draft-badge">${reportStatus}</span></div><div><button class="button button-secondary" type="button" data-comment-report>${buttonContent(data.commentAction, "add_comment")}</button><button class="button button-secondary" type="button" data-share-report>${buttonContent(data.shareAction, "ios_share")}</button></div></div>
+        <div class="final-report-layout"><article class="report-document">${reportSections.map((section, index) => `<section><span>${String(index + 1).padStart(2, "0")}</span><div><h3>${section.title}</h3><p>${section.body}</p></div></section>`).join("")}${reportRoles}</article><aside class="export-panel"><span class="panel-icon">${icon("description")}</span><h3>${previousReport ? data.previousReportExportTitle : data.generateReport}</h3><p>${common.demoDisclaimer}</p><button class="button button-primary button-full" type="button" data-export-pdf>${buttonContent(data.exportPdf, "picture_as_pdf")}</button><a class="button button-secondary button-full" href="${buildWordReportHref()}" download="${previousReport?.file || data.wordFilename}" data-export-word>${buttonContent(data.exportWord, "download")}</a><p class="generated-status" data-generated-status hidden>${data.generatedMessage}</p></aside></div>
       </section>`;
   };
 
@@ -720,10 +792,17 @@
   };
 
   const bindOverview = () => {
-    document.querySelector("[data-overview-resume]")?.addEventListener("click", () => setWorkspaceView("evidence"));
+    document.querySelector("[data-overview-resume]")?.addEventListener("click", () => {
+      appState.previousReport = null;
+      setWorkspaceView("evidence");
+    });
     document.querySelector("[data-overview-copilot]")?.addEventListener("click", () => setWorkspaceView("copilot"));
-    document.querySelectorAll("[data-attention-action]").forEach((button) => button.addEventListener("click", () => setWorkspaceView("evidence")));
+    document.querySelectorAll("[data-attention-action]").forEach((button) => button.addEventListener("click", () => {
+      appState.previousReport = null;
+      setWorkspaceView("evidence");
+    }));
     document.querySelectorAll("[data-open-previous-report]").forEach((button) => button.addEventListener("click", () => {
+      appState.previousReport = workspace.overview.previousReports.find((report) => report.code === button.dataset.openPreviousReport) || null;
       appState.activeReport = "final";
       setWorkspaceView("evidence");
       showToast(workspace.toasts.reportOpened);
@@ -761,6 +840,7 @@
 
   const bindAgents = () => {
     document.querySelectorAll("[data-agent-report]").forEach((button) => button.addEventListener("click", () => {
+      appState.previousReport = null;
       appState.activeReport = button.dataset.agentReport;
       setWorkspaceView("evidence");
     }));
@@ -836,6 +916,7 @@
   const bindEvidence = () => {
     document.querySelectorAll("[data-report-tab]").forEach((button) => button.addEventListener("click", () => {
       const tab = button.dataset.reportTab;
+      appState.previousReport = null;
       if (tab === "scoring") {
         setWorkspaceView("scoring");
         return;
@@ -845,6 +926,7 @@
     }));
     document.querySelector("[data-evidence-graph]")?.addEventListener("click", () => setWorkspaceView("graph"));
     document.querySelector("[data-generate-report]")?.addEventListener("click", () => {
+      appState.previousReport = null;
       appState.activeReport = "final";
       updateReportPanel();
       const status = document.querySelector("[data-generated-status]");
@@ -884,7 +966,12 @@
 
   function buildWordReportHref() {
     const data = workspace.evidence;
-    const documentMarkup = `<!doctype html><html><head><meta charset="utf-8"><title>${data.finalTitle}</title></head><body><h1>${data.finalTitle}</h1><p>${data.finalVersion}</p>${data.finalSections.map((section) => `<h2>${section.title}</h2><p>${section.body}</p>`).join("")}<h2>${data.finalRolesTitle}</h2>${data.roles.map((role) => `<h3>${role.name}: ${role.status}</h3><p>${role.detail}</p>`).join("")}</body></html>`;
+    const previousReport = appState.previousReport;
+    const title = previousReport?.name || data.finalTitle;
+    const summary = previousReport ? `${previousReport.code} | ${previousReport.status} | ${previousReport.updated}` : data.finalVersion;
+    const sections = previousReport?.sections || data.finalSections;
+    const roles = previousReport ? "" : `<h2>${data.finalRolesTitle}</h2>${data.roles.map((role) => `<h3>${role.name}: ${role.status}</h3><p>${role.detail}</p>`).join("")}`;
+    const documentMarkup = `<!doctype html><html><head><meta charset="utf-8"><title>${title}</title></head><body><h1>${title}</h1><p>${summary}</p>${sections.map((section) => `<h2>${section.title}</h2><p>${section.body}</p>`).join("")}${roles}</body></html>`;
     return `data:application/msword;charset=utf-8,${encodeURIComponent(documentMarkup)}`;
   }
 

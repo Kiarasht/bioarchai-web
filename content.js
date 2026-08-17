@@ -958,7 +958,7 @@ window.BIOARCHAI_CONTENT.v2 = {
     "heroSignals": ["Label Evidence", "Clinical Trial Evidence", "Prevalence Evidence", "Assay Strategy", "Biology & Clinical Evidence"],
     "heroOutputLabel": "Primary strategy outputs",
     "heroOutputs": ["Biomarker Strategy Agent", "Clinical Trial Design Agent"],
-    "heroOutputMarks": ["B", "T"],
+    "heroOutputMarks": ["01", "02"],
     "trustItems": ["Evidence-linked recommendations", "Visible agent workflow", "Controlled decision logic", "Human review at every stage"],
     "solutionsEyebrow": "One intelligence layer, three focused workspaces",
     "solutionsTitle": "Start with the decision your team needs to make.",

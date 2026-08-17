@@ -458,7 +458,7 @@ textarea:focus-visible {
   align-self: end;
   margin-bottom: 62px;
   border-top: 1px solid var(--line-strong);
-  background: rgba(5, 14, 18, 0.78);
+  background: var(--bg-deep);
 }
 
 .map-legend-top {
@@ -622,8 +622,13 @@ textarea:focus-visible {
 }
 
 .solutions-section {
-  background: #f2f6f5;
-  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  background: #081419;
+  color: var(--text);
+}
+
+.solutions-section .section-intro > p:last-child {
+  color: var(--text-soft);
 }
 
 .section-intro {
@@ -651,8 +656,8 @@ textarea:focus-visible {
 
 .solution-grid {
   display: grid;
-  border-top: 1px solid #bdcdcc;
-  border-left: 1px solid #bdcdcc;
+  border-top: 1px solid var(--line-strong);
+  border-left: 1px solid var(--line-strong);
   grid-template-columns: repeat(3, 1fr);
 }
 
@@ -660,20 +665,20 @@ textarea:focus-visible {
   position: relative;
   min-height: 560px;
   padding: 30px;
-  border-right: 1px solid #bdcdcc;
-  border-bottom: 1px solid #bdcdcc;
-  background: #f7faf9;
+  border-right: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+  background: #0b181e;
   transition: background 180ms ease, transform 180ms ease;
 }
 
 .solution-card:hover {
   z-index: 1;
-  background: #ffffff;
+  background: var(--surface-2);
   transform: translateY(-3px);
 }
 
 .solution-card.is-featured {
-  background: #e6f5f1;
+  background: #0c211f;
 }
 
 .solution-card-top {
@@ -686,17 +691,17 @@ textarea:focus-visible {
   display: grid;
   width: 44px;
   height: 44px;
-  border: 1px solid #a9c8c2;
+  border: 1px solid var(--line-strong);
   border-radius: 50%;
-  color: #138a7a;
+  color: var(--teal);
   place-items: center;
 }
 
 .status-label {
   padding: 5px 8px;
-  border: 1px solid #b7c8c6;
+  border: 1px solid var(--line);
   border-radius: 3px;
-  color: #617476;
+  color: var(--text-muted);
   font-size: 9px;
   font-weight: 800;
   text-transform: uppercase;
@@ -704,7 +709,7 @@ textarea:focus-visible {
 
 .card-index {
   margin: 42px 0 12px;
-  color: #76908f;
+  color: var(--teal-strong);
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 11px;
 }
@@ -716,13 +721,13 @@ textarea:focus-visible {
 }
 
 .solution-card > p:not(.card-index):not(.solution-audience) {
-  color: #506567;
+  color: var(--text-soft);
   font-size: 14px;
 }
 
 .solution-audience {
   margin-bottom: 20px;
-  color: #128172;
+  color: var(--teal);
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -733,7 +738,7 @@ textarea:focus-visible {
   gap: 8px;
   margin: 20px 0 68px;
   padding: 18px 0 0;
-  border-top: 1px solid #cbd9d7;
+  border-top: 1px solid var(--line);
   list-style: none;
 }
 
@@ -741,13 +746,13 @@ textarea:focus-visible {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #365557;
+  color: #c8d9d7;
   font-size: 11px;
   font-weight: 650;
 }
 
 .solution-capability-list .material-symbols-outlined {
-  color: #138a7a;
+  color: var(--teal);
   font-size: 14px;
 }
 
@@ -760,8 +765,8 @@ textarea:focus-visible {
   align-items: center;
   justify-content: space-between;
   padding-top: 18px;
-  border-top: 1px solid #bdcdcc;
-  color: #0d665c;
+  border-top: 1px solid var(--line);
+  color: var(--teal);
   font-size: 13px;
   font-weight: 800;
 }

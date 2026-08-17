@@ -274,6 +274,7 @@
     const canvas = document.querySelector("[data-nexus-canvas]");
     if (!(canvas instanceof HTMLCanvasElement)) return;
     const context = canvas.getContext("2d");
+    const legend = document.querySelector(".hero-map-legend");
     const sourceLabels = landing.heroSignals;
     const outputLabels = landing.heroOutputs;
     let width = 0;
@@ -294,12 +295,16 @@
       context.setTransform(ratio, 0, 0, ratio, 0, 0);
       sourcePoints.length = 0;
       outputPoints.length = 0;
-      core = { x: width * 0.79, y: height * 0.43 };
+      const legendTop = legend ? legend.getBoundingClientRect().top - rect.top : height * 0.48;
+      const graphTop = Math.max(54, height * 0.07);
+      const graphBottom = Math.max(graphTop + 150, Math.min(height * 0.44, legendTop - 32));
+      const graphHeight = graphBottom - graphTop;
+      core = { x: width * 0.79, y: graphTop + graphHeight * 0.6 };
       sourceLabels.forEach((label, index) => {
         sourcePoints.push({
           label,
           x: width * 0.61,
-          y: height * (0.17 + index * 0.13),
+          y: graphTop + graphHeight * (0.04 + index * 0.23),
           phase: index * 0.8
         });
       });
@@ -307,7 +312,7 @@
         outputPoints.push({
           label,
           x: width * 0.94,
-          y: height * (0.34 + index * 0.21),
+          y: graphTop + graphHeight * (0.34 + index * 0.46),
           phase: 2.4 + index
         });
       });
@@ -375,6 +380,9 @@
       });
 
       const corePulse = (Math.sin(frame * 0.02) + 1) / 2;
+      const coreFont = "600 11px Inter, system-ui, sans-serif";
+      context.font = coreFont;
+      const coreRadius = Math.max(24, context.measureText(common.nexusCoreLabel).width / 2 + 8);
       const gradient = context.createRadialGradient(core.x, core.y, 0, core.x, core.y, 55 + corePulse * 8);
       gradient.addColorStop(0, "rgba(74, 218, 197, 0.32)");
       gradient.addColorStop(1, "rgba(74, 218, 197, 0)");
@@ -383,14 +391,14 @@
       context.fillStyle = gradient;
       context.fill();
       context.beginPath();
-      context.arc(core.x, core.y, 17, 0, Math.PI * 2);
+      context.arc(core.x, core.y, coreRadius, 0, Math.PI * 2);
       context.fillStyle = "rgba(10, 35, 42, 0.98)";
       context.fill();
       context.strokeStyle = "rgba(105, 234, 214, 0.92)";
       context.lineWidth = 1.5;
       context.stroke();
       context.fillStyle = "rgba(232, 255, 251, 0.9)";
-      context.font = "600 11px Inter, system-ui, sans-serif";
+      context.font = coreFont;
       context.textAlign = "center";
       context.fillText(common.nexusCoreLabel, core.x, core.y + 4);
       frame += 1;

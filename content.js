@@ -1028,9 +1028,9 @@ window.BIOARCHAI_CONTENT.v2 = {
     "newsTitle": "Current thinking from BioArchai.",
     "newsLede": "Perspectives on biomarker strategy, traceable evidence integration, and the development of expert-led decision intelligence.",
     "newsItems": [
-      {"type": "Perspective", "title": "Why biomarker strategy needs disease-specific intelligence", "description": "Mechanism, clinical context, assay feasibility, and evidence confidence need to be evaluated together when defining a biomarker strategy.", "action": "Discuss this topic", "href": "../demo.html"},
+      {"type": "Perspective", "title": "Why biomarker strategy needs disease-specific intelligence", "description": "Mechanism, clinical context, assay feasibility, and evidence confidence need to be evaluated together when defining a biomarker strategy.", "action": "Discuss this topic", "href": "#request-demo"},
       {"type": "Platform Note", "title": "From evidence fragments to decision-ready outputs", "description": "A practical view of traceable synthesis, controlled scoring, and expert review for high-stakes biomarker workflows.", "action": "See how it works", "href": "#workflow"},
-      {"type": "Company Update", "title": "Design partner opportunities for Archai Nexus", "description": "BioArchai is engaging qualified biopharma, diagnostic, Medical Affairs, HEOR, and evidence-generation teams around focused design partnerships.", "action": "Request a discussion", "href": "../demo.html"}
+      {"type": "Company Update", "title": "Design partner opportunities for Archai Nexus", "description": "BioArchai is engaging qualified biopharma, diagnostic, Medical Affairs, HEOR, and evidence-generation teams around focused design partnerships.", "action": "Request a discussion", "href": "#request-demo"}
     ],
     "careersEyebrow": "Careers",
     "careersTitle": "Help build the future of precision medicine intelligence.",
@@ -1043,6 +1043,22 @@ window.BIOARCHAI_CONTENT.v2 = {
     "ctaEyebrow": "Request a Demo",
     "ctaTitle": "Bring your biomarker strategy question to BioArchai.",
     "ctaLede": "See how Archai Nexus can organize evidence, run specialized agents, and produce a traceable biomarker strategy and clinical trial design recommendation.",
+    "demoForm": {
+      "name": "Name",
+      "company": "Company",
+      "title": "Title / Role",
+      "email": "Work email",
+      "interest": "Area of interest",
+      "interestPlaceholder": "Select an area",
+      "interests": ["Archai Nexus platform", "Tx Archai: translational / biomarker / clinical trial planning", "Dx Archai: diagnostics / assay strategy / biopharma partnership", "Evidence Archai: Medical Affairs / HEOR / RWE / evidence generation", "Biomarker strategy", "Diagnostic and assay strategy", "Advisory / Partnership", "Other"],
+      "disease": "Therapeutic area or disease area of interest",
+      "message": "Message / use case",
+      "required": "Required",
+      "optional": "Optional",
+      "submit": "Submit request",
+      "note": "BioArchai will follow up by email.",
+      "status": "Request sent successfully."
+    },
     "footerProduct": "Product",
     "footerCompany": "Company",
     "footerLinks": ["Tx Archai", "Dx Archai", "Evidence Archai"],

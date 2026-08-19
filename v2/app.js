@@ -80,6 +80,21 @@
     );
   };
 
+  const setupDemoRequestForm = () => {
+    const form = document.querySelector("[data-demo-request-form]");
+    const status = document.querySelector("[data-demo-request-status]");
+    if (!(form instanceof HTMLFormElement)) return;
+
+    form.addEventListener("submit", (event) => {
+      if (!form.checkValidity()) return;
+
+      event.preventDefault();
+      const formCopy = landing.demoForm;
+      if (status) status.textContent = formCopy.status;
+      form.reset();
+    });
+  };
+
   const renderLanding = () => {
     setMeta(content.meta.landingTitle, content.meta.landingDescription);
     root.innerHTML = `
@@ -135,7 +150,7 @@
             </div>
             <div class="solution-grid">
               ${landing.solutions.map((solution, index) => `
-                <article class="solution-card reveal ${solution.id === "tx" ? "is-featured" : ""}">
+                <article class="solution-card reveal">
                   <div class="solution-card-top">
                     <span class="solution-icon">${icon(solution.icon)}</span>
                     <span class="status-label">${solution.status}</span>
@@ -249,10 +264,25 @@
           </div>
         </section>
 
-        <section class="marketing-cta">
+        <section class="marketing-cta" id="request-demo">
           <div class="marketing-container cta-layout reveal">
-            <div><p class="section-kicker">${landing.ctaEyebrow}</p><h2>${landing.ctaTitle}</h2><p>${landing.ctaLede}</p></div>
-            <a class="button button-primary button-large" href="../demo.html">${buttonContent(common.requestDemo, "arrow_forward")}</a>
+            <div class="cta-copy"><p class="section-kicker">${landing.ctaEyebrow}</p><h2>${landing.ctaTitle}</h2><p>${landing.ctaLede}</p></div>
+            <form class="demo-request-form" data-demo-request-form>
+              <div class="demo-request-grid">
+                <label class="demo-request-field"><span>${landing.demoForm.name}<b>${landing.demoForm.required}</b></span><input name="name" autocomplete="name" required></label>
+                <label class="demo-request-field"><span>${landing.demoForm.company}<b>${landing.demoForm.required}</b></span><input name="company" autocomplete="organization" required></label>
+                <label class="demo-request-field"><span>${landing.demoForm.title}<b>${landing.demoForm.required}</b></span><input name="title" autocomplete="organization-title" required></label>
+                <label class="demo-request-field"><span>${landing.demoForm.email}<b>${landing.demoForm.required}</b></span><input type="email" name="email" autocomplete="email" required></label>
+                <label class="demo-request-field demo-request-field-full"><span>${landing.demoForm.interest}<b>${landing.demoForm.required}</b></span><select name="interest" required><option value="">${landing.demoForm.interestPlaceholder}</option>${landing.demoForm.interests.map((interest) => `<option>${interest}</option>`).join("")}</select></label>
+                <label class="demo-request-field demo-request-field-full"><span>${landing.demoForm.disease}<b>${landing.demoForm.optional}</b></span><input name="disease"></label>
+                <label class="demo-request-field demo-request-field-full"><span>${landing.demoForm.message}<b>${landing.demoForm.required}</b></span><textarea name="message" required></textarea></label>
+              </div>
+              <div class="demo-request-actions">
+                <button class="button button-primary button-large" type="submit">${buttonContent(landing.demoForm.submit, "send")}</button>
+                <span>${landing.demoForm.note}</span>
+              </div>
+              <p class="demo-request-status" aria-live="polite" data-demo-request-status></p>
+            </form>
           </div>
         </section>
       </main>
@@ -260,7 +290,7 @@
       <footer class="marketing-footer">
         <div class="marketing-container footer-layout">
           <div>${brand("./", true)}<p>${common.copyright}</p></div>
-          <div class="footer-link-group"><strong>${landing.footerProduct}</strong>${landing.footerLinks.map((link) => `<a href="login.html">${link}</a>`).join("")}<a class="footer-demo-link" href="../demo.html">${buttonContent(common.requestDemo, "arrow_forward")}</a></div>
+          <div class="footer-link-group"><strong>${landing.footerProduct}</strong>${landing.footerLinks.map((link) => `<a href="login.html">${link}</a>`).join("")}<a class="footer-demo-link" href="#request-demo">${buttonContent(common.requestDemo, "arrow_forward")}</a></div>
           <div class="footer-link-group"><strong>${landing.footerCompany}</strong>${landing.footerCompanyLinks.map((link) => `<a href="${link.href}">${link.label}</a>`).join("")}</div>
         </div>
       </footer>`;
@@ -268,6 +298,7 @@
     setupMobileMenu();
     setupReveal();
     setupNexusCanvas();
+    setupDemoRequestForm();
   };
 
   const setupNexusCanvas = () => {
